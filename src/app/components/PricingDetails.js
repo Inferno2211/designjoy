@@ -1,0 +1,93 @@
+import Image from 'next/image';
+
+const PricingDetails = () => {
+  return (
+    <div className="pricing p-b-120">
+      <div className="container m-t-0">
+        <div className="inner-container">
+          <div className="div-block-27">
+            <div style={{ opacity: 0 }} className="div-block-28">
+              <div className="marquee">
+                <div className="marquee-inner">
+                  <div className="marquee-element">
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274558.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274560.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274563.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274559.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274561.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="100vw" src="/Group 1171274562.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                  </div>
+                  <div className="marquee-element">
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274558.png" alt="" width={726} height={150} loading="lazy" className="image-26 _3" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274560.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274563.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274559.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="(max-width: 726px) 100vw, 726px" src="/Group 1171274561.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                    <Image sizes="100vw" src="/Group 1171274562.png" alt="" width={726} height={150} loading="lazy" className="image-26" />
+                  </div>
+                </div>
+              </div>
+              <div style={{ opacity: 0 }} className="_44959">
+                <div>
+                  <div className="div-block-33">
+                    <div className="div-block-34">
+                      <div className="div-block-36">
+                        <div className="div-block-35"><Image src="/Group 1171274565.svg" loading="lazy" alt="" width={16} height={16} /></div>
+                        <div>Buy Me A Coffee</div>
+                      </div>
+                      <div className="text-block-4">Fintech Product of the Year</div>
+                      <Image src="/producthunt-official (1) 1.svg" loading="lazy" alt="" width={90} height={20} className="image-31" />
+                    </div>
+                    <div className="div-block-34">
+                      <div className="div-block-36">
+                        <div className="div-block-35"><Image src="/Switchboard_Logo_Symbol 4.svg" loading="lazy" alt="" width={16} height={16} /></div>
+                        <div>Switchboard</div>
+                      </div>
+                      <div className="text-block-4">Remote Work Product of the Year</div>
+                      <Image src="/producthunt-official (1) 1.svg" loading="lazy" alt="" width={90} height={20} className="image-31" />
+                    </div>
+                  </div>
+                </div>
+                <div className="hiw__card-header left _4">Recent work</div>
+                <p className="hero__left-bottom-p m-t-12 left">We&#x27;re talking &quot;Product of the Year&quot;&nbsp;good.</p>
+                <a href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&amp;type=design&amp;node-id=906-2343&amp;viewport=450%2C721%2C0.13&amp;t=ZYPXbxSFD1m31WCi-1&amp;scaling=min-zoom&amp;mode=design" target="_blank" className="button-filled m-t-24 m-t-12 w-inline-block">
+                  <div>See recent work</div>
+                </a>
+              </div>
+            </div>
+            <div style={{ opacity: 0 }} className="async _4">
+              <div>
+                <div style={{ opacity: 0 }} className="div-block-29">
+                  <div className="new-service-pill">Web design</div>
+                  <div className="new-service-pill">Logos</div>
+                  <div className="new-service-pill">Slide decks</div>
+                  <div className="new-service-pill">Branding</div>
+                  <div className="new-service-pill">Social media</div>
+                  <div className="new-service-pill">UI/UX design</div>
+                  <div className="new-service-pill">Webflow development</div>
+                  <div className="new-service-pill">Mobile apps</div>
+                  <div className="new-service-pill">Print design</div>
+                  <div className="new-service-pill">Email</div>
+                  <div className="new-service-pill">Display ads</div>
+                  <div className="new-service-pill">Icons</div>
+                  <div className="new-service-pill">Brand guides</div>
+                  <div className="new-service-pill more">+ more</div>
+                </div>
+                <div className="div-block-31 _444">
+                  <div className="hiw__card-header">Apps, websites, logos &amp; more</div>
+                  <p className="hero__left-bottom-p m-t-12">All the things you need under one roof.</p>
+                </div>
+              </div>
+              <Image loading="lazy" src="/pink.svg" alt=""  width={190} height={150} className="image-27" />
+              <Image loading="lazy" src="/Group 1171274487.svg" alt="" width={150} height={120} className="image-30" />
+            </div>
+          </div>
+        </div>
+        <div className="grid-line-right"></div>
+        <div className="grid-line-left"></div>
+      </div>
+    </div>
+  );
+};
+
+export default PricingDetails; 

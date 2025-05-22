@@ -1,0 +1,115 @@
+import Image from 'next/image';
+
+const Hiw = () => {
+  return (
+    <div className="hiw">
+      <div className="container mmmm">
+        <div className="inner-container">
+          <div className="hiw__header-wrapper">
+            <h2>The way design <span className="text-italics">should've</span> been done in the first place</h2>
+          </div>
+          <div className="w-layout-grid hiw__grid">
+            <div style={{ opacity: 0 }} className="hiw__card">
+              <div className="hiw__card-gradient">
+                <div className="hiw__card-header">Subscribe</div>
+                <p className="hiw__card-p text-black _2">Subscribe to a plan &amp; request as many designs as you'd like.</p>
+              </div>
+              <Image style={{ opacity: 0 }} src="/price.svg" alt="" width={530} height={300} loading="lazy" className="image-3" />
+            </div>
+            <div style={{ opacity: 0 }} className="hiw__card _2">
+              <div className="hiw__card-gradient _2">
+                <div className="hiw__card-header">Request</div>
+                <p className="hiw__card-p">Request whatever you&#x27;d like, from mobile apps to logos.</p>
+              </div>
+              <div className="receive__image-wrapper">
+                <div className="marquees">
+                  <div className="marquee-1 _2">
+                    <div className="marquee-1-inner">
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Mobile apps</div>
+                        <div className="service-pill">Presentations</div>
+                        <div className="service-pill">Logos</div>
+                        <div className="service-pill">Social Media</div>
+                        <div className="service-pill">Email</div>
+                      </div>
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Mobile apps</div>
+                        <div className="service-pill">Presentations</div>
+                        <div className="service-pill">Logos</div>
+                        <div className="service-pill">Social Media</div>
+                        <div className="service-pill">Email</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="marquee-1 _2 _4455">
+                    <div className="marquee-1-inner _6886">
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Webflow</div>
+                        <div className="service-pill">Print design</div>
+                        <div className="service-pill">Packaging</div>
+                        <div className="service-pill">Ad creative</div>
+                        <div className="service-pill">Landing pages<br /></div>
+                      </div>
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Webflow</div>
+                        <div className="service-pill">Print design</div>
+                        <div className="service-pill">Packaging</div>
+                        <div className="service-pill">Ad creative</div>
+                        <div className="service-pill">Landing pages<br /></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="marquee-1 _2">
+                    <div className="marquee-1-inner">
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Branding</div>
+                        <div className="service-pill">Email</div>
+                        <div className="service-pill">Display ads</div>
+                        <div className="service-pill">Packaging</div>
+                        <div className="service-pill">User interface</div>
+                      </div>
+                      <div className="marquee-1-element">
+                        <div className="service-pill">Branding</div>
+                        <div className="service-pill">Email</div>
+                        <div className="service-pill">Display ads</div>
+                        <div className="service-pill">Packaging</div>
+                        <div className="service-pill">User interface</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ transform: 'translate3d(-50px, -50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)' }} className="request__block">
+                    <Image style={{ opacity: 0 }} src="/Smile.png" alt="" width={70} height={70} loading="lazy" className="image-7" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ opacity: 0 }} className="hiw__card _3">
+              <div className="hiw__card-gradient _3">
+                <div className="hiw__card-header">Receive</div>
+                <p className="hiw__card-p">Receive your design within two business days on average.</p>
+              </div>
+              <div className="div-block-2">
+                <div style={{ opacity: 0 }} className="stack">
+                  <div style={{ transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(9deg) skew(0, 0)' }} className="front-design"></div>
+                  <div className="middle-design"></div>
+                  <div style={{ transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-23deg) skew(0, 0)' }} className="bottom-design"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="logos__row">
+            <Image loading="lazy" src="/Nectar-sleep-logo-vector 1.svg" alt="" width={100} height={30}/>
+            <Image loading="lazy" src="/bmc-full-logo 1.svg" alt="" width={100} height={30}/>
+            <Image loading="lazy" src="/svg.svg" alt="" width={100} height={30}/>
+            <Image loading="lazy" src="/Vector.svg" alt="" width={100} height={30}/>
+            <Image loading="lazy" src="/6203180d8e14605fb2d2c003_Vector 1.svg" alt="" width={100} height={30}/>
+          </div>
+        </div>
+        <div className="grid-line-right"></div>
+        <div className="grid-line-left"></div>
+      </div>
+    </div>
+  );
+};
+
+export default Hiw; 
