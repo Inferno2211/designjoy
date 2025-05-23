@@ -77,7 +77,7 @@ const Hero = () => {
                     One subscription to rule them all.
                   </div>
                   <a
-                    style={{ opacity: 0 }}
+                    style={{ opacity: 100 }}
                     href="#pricing"
                     className="button w-button"
                   >
@@ -85,14 +85,14 @@ const Hero = () => {
                   </a>
                 </div>
                 <a
-                  // style={{ opacity: 0 }}
+                  style={{ opacity: 100 }}
                   href="#book"
                   className="hero__member-card-call w-inline-block"
                 >
                   <div className="hero__member-card-call-left">
                     <Image
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec196c_card.png"
+                      src="/images/images2/smileface.png"
                       alt="card icon"
                       width={40}
                       height={40}
@@ -108,10 +108,10 @@ const Hero = () => {
                   </div>
                   <Image
                     loading="lazy"
-                    src="/arrow.svg"
+                    src="/images/images2/arrow.svg"
                     alt="arrow"
-                    width={24}
-                    height={24}
+                    width={34}
+                    height={34}
                   />
                 </a>
                 <Image

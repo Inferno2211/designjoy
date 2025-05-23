@@ -4057,7 +4057,7 @@ html.w-mod-js [data-ix="referral-code"] {
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr;
     grid-auto-columns: 1fr;
-    display: none;
+    /* display: none; */
     overflow: auto;
   }
 

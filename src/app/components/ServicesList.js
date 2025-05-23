@@ -8,10 +8,10 @@ const ServicesList = () => {
           <div className="services__col">
             <div className="services__block _1">
               <Image
-                style={{
-                  transform:
-                    "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                }}
+                // style={{
+                //   transform:
+                //     "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                // }}
                 src="/images/images2/servicelist1.png"
                 alt="one"
                 width={60}
@@ -29,8 +29,8 @@ const ServicesList = () => {
             <div className="services__block _3">
               <Image
                 loading="lazy"
-                src="/Lock-Square-Dial-Pad--Streamline-Nova.png"
-                alt=""
+                src="/images/images2/lock.png"
+                alt="lk"
                 width={50}
                 height={50}
                 className="image-8 _4"
@@ -45,7 +45,7 @@ const ServicesList = () => {
             <div className="services__block _2">
               <Image
                 loading="lazy"
-                src="/Flash-Enable-Allow-1--Streamline-Nova.png"
+                src="/images/images2/arrowstream.png"
                 alt=""
                 width={60}
                 height={60}
@@ -61,7 +61,7 @@ const ServicesList = () => {
             <div className="services__block _4">
               <Image
                 loading="lazy"
-                src="/Star--Streamline-Nova.png"
+                src="/images/images2/star.png"
                 alt=""
                 width={70}
                 height={70}
@@ -76,13 +76,13 @@ const ServicesList = () => {
           <div className="services__col">
             <div className="services__block _5">
               <Image
-                style={{
-                  transform:
-                    "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                }}
+                // style={{
+                //   transform:
+                //     "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                // }}
                 loading="lazy"
                 alt=""
-                src="/Resize-Expand--Streamline-Nova.png"
+                src="/images/images2/block.png"
                 width={60}
                 height={60}
                 className="image-8"
@@ -96,13 +96,13 @@ const ServicesList = () => {
           <div className="services__col last">
             <div className="services__block _6">
               <Image
-                style={{
-                  transform:
-                    "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                }}
+                // style={{
+                //   transform:
+                //     "translate3d(0, 130px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                // }}
                 loading="lazy"
                 alt=""
-                src="/Touch-Id--Streamline-Nova.png"
+                src="/images/images2/nova.png"
                 width={60}
                 height={60}
                 className="image-8"
