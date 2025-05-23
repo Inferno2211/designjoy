@@ -70,48 +70,89 @@ export default function Faq() {
 
   return (
     <div className="container faqq">
-      <div className="hiw__header-wrapper">
-        <h1><span className="text-italics">Frequently</span> asked questions</h1>
-        <div className="div-block-13">
-          {faqData.map((faq, index) => (
-            <div 
-              key={index} 
-              className="faq__row"
-              onClick={() => toggleFaq(index)}
-              style={{ cursor: 'pointer' }}
-            >
-              <div>
-                <div className="faq__question m-b-0">{faq.question}</div>
-                <p 
-                  className="faq__answer"
-                  style={{ 
-                    display: openIndex === index ? 'block' : 'none',
-                    marginTop: '12px',
-                    marginBottom: '0',
-                    fontSize: '16px',
-                    lineHeight: '20px',
-                    color: '#99948f'
+      <div className="hero__flex">
+        <div className="faq__left">
+          <h1><span className="text-italics">Frequently</span> asked questions</h1>
+          <div className="div-block-13">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="faq__row"
+                onClick={() => toggleFaq(index)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div>
+                  <div className="faq__question m-b-0">{faq.question}</div>
+                  <p
+                    className="faq__answer"
+                    style={{
+                      display: openIndex === index ? 'block' : 'none',
+                      marginTop: '12px',
+                      marginBottom: '0',
+                      fontSize: '16px',
+                      lineHeight: '20px',
+                      color: '#99948f'
+                    }}
+                  >
+                    {faq.answer.split('\n\n').map((paragraph, i) => (
+                      <span key={i}>
+                        {paragraph}
+                        {i < faq.answer.split('\n\n').length - 1 && <><br /><br /></>}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+                <Image
+                  src="/chevron-down.svg"
+                  alt=""
+                  width={24} 
+                  height={24}
+                  className="faq__arrow"
+                  style={{
+                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.3s ease'
                   }}
-                >
-                  {faq.answer.split('\n\n').map((paragraph, i) => (
-                    <span key={i}>
-                      {paragraph}
-                      {i < faq.answer.split('\n\n').length - 1 && <><br /><br /></>}
-                    </span>
-                  ))}
-                </p>
+                />
               </div>
-              <img
-                src="/chevron-down.svg"
+            ))}
+          </div>
+        </div>
+        <div className="faq__card">
+          <div className="faq__card-inner">
+            <Image
+              loading="lazy"
+              src="/Group 10.png" 
+              alt=""
+              width={130} 
+              height={115} 
+              className="image-11"
+            />
+            <div className="hero__member-card-header _2">Book a 15-min intro call</div>
+            <a href="#book" className="button w-button">Book a call</a>
+          </div>
+          <a href="mailto:hello@designjoy.co?subject=Website%20Inquiry" className="hero__member-card-call w-inline-block">
+            <div className="hero__member-card-call-left">
+              <Image
+                loading="lazy"
+                src="/Send-Email--Streamline-Ultimate.png" 
                 alt=""
-                className="faq__arrow"
-                style={{
-                  transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.3s ease'
-                }}
+                width={30} 
+                height={30} 
+                className="image-2 send"
               />
+              <div>
+                <div>Prefer to email?</div>
+                <div className="hero__member-card-call-schedule">hello@designjoy.co</div>
+              </div>
             </div>
-          ))}
+            <Image 
+              loading="lazy" 
+              src="/arrow.svg" 
+              alt="" 
+              width={24} 
+              height={24} 
+            />
+          </a>
         </div>
       </div>
     </div>
