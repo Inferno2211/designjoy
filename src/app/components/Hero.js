@@ -67,7 +67,16 @@ const Hero = () => {
               <div className="hero__member-card">
                 <div className="hero__member-card-badge">
                   {/* Lottie animation will be handled later or replaced with a static image */}
-                  <div className="lottie-animation-5"></div>
+                  <div className="lottie-animation-5">
+                    <Image
+                      loading="lazy"
+                      src="/images/images2/dot.svg"
+                      alt="card icon"
+                      width={27}
+                      height={27}
+                      className="image2"
+                    />
+                  </div>
                   <div>Start today</div>
                 </div>
                 <div className="hero__member-card-splash">
