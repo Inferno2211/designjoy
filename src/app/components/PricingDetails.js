@@ -7,12 +7,21 @@ const PricingDetails = () => {
         <div className="inner-container">
           <div className="div-block-27">
             <div style={{ opacity: 100 }} className="div-block-28">
-              <div className="marquee">
-                <div className="marquee-inner">
-                  {/* <div className="marquee-element">
+              <div className="marquee overflow-hidden">
+                <div className="marquee-inner flex whitespace-nowrap animate-scroll-left w-[200%]">
+                  <div className="marquee-element w-[1/2] flex-shrink-0">
                     <Image
                       sizes="(max-width: 726px) 100vw, 726px"
-                      src="/Group 1171274558.png"
+                      src="/images/images2/pricingdetail1.png"
+                      alt=""
+                      width={726}
+                      height={150}
+                      loading="lazy"
+                      className="image-26 _3"
+                    />
+                    <Image
+                      sizes="(max-width: 726px) 100vw, 726px"
+                      src="/images/images2/pricingdetail2.png"
                       alt=""
                       width={726}
                       height={150}
@@ -21,7 +30,7 @@ const PricingDetails = () => {
                     />
                     <Image
                       sizes="(max-width: 726px) 100vw, 726px"
-                      src="/Group 1171274560.png"
+                      src="/images/images2/pricingdetail3.png"
                       alt=""
                       width={726}
                       height={150}
@@ -30,7 +39,7 @@ const PricingDetails = () => {
                     />
                     <Image
                       sizes="(max-width: 726px) 100vw, 726px"
-                      src="/Group 1171274563.png"
+                      src="/images/images2/pricingdetail4.png"
                       alt=""
                       width={726}
                       height={150}
@@ -39,16 +48,7 @@ const PricingDetails = () => {
                     />
                     <Image
                       sizes="(max-width: 726px) 100vw, 726px"
-                      src="/Group 1171274559.png"
-                      alt=""
-                      width={726}
-                      height={150}
-                      loading="lazy"
-                      className="image-26"
-                    />
-                    <Image
-                      sizes="(max-width: 726px) 100vw, 726px"
-                      src="/Group 1171274561.png"
+                      src="/images/images2/pricingdetail5.png"
                       alt=""
                       width={726}
                       height={150}
@@ -57,15 +57,15 @@ const PricingDetails = () => {
                     />
                     <Image
                       sizes="100vw"
-                      src="/Group 1171274562.png"
+                      src="/images/images2/pricingdetail6.png"
                       alt=""
                       width={726}
                       height={150}
                       loading="lazy"
                       className="image-26"
                     />
-                  </div> */}
-                  <div className="marquee-element">
+                  </div>
+                  <div className="marquee-element w-[1/2] flex-shrink-0">
                     <Image
                       sizes="(max-width: 726px) 100vw, 726px"
                       src="/images/images2/pricingdetail1.png"

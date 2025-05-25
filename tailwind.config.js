@@ -21,10 +21,16 @@ module.exports = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        scrollLeft: {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-50%, 0, 0)" },
+        },
       },
       animation: {
         floatComplex2: "floatComplex2 14s ease-in-out infinite",
+        floatComplex3: "floatComplex2 20s ease-in-out infinite",
         marquee: "marquee 9s linear infinite",
+        "scroll-left": "scrollLeft 12s linear infinite",
       },
     },
   },

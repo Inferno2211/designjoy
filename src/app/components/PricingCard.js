@@ -1,4 +1,13 @@
+"use client";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  {
+    ssr: false,
+  }
+);
 
 const PricingCard = () => {
   return (
@@ -14,14 +23,18 @@ const PricingCard = () => {
         <div className="pricing__flex">
           <div style={{ opacity: 100 }} className="div-block-3">
             <div>
-              <div
-                style={{ opacity: 100 }}
-                className="hero__member-card-badge m-b-24"
-              >
-                {/* Lottie animation */}
-                <div className="lottie-animation-5"></div>
-                <div>Start today</div>
+              <div className="hero__member-card-badge flex items-center gap-0 ">
+                <div className="lottie-animation-5 w-[30px] h-[30px]">
+                  <Player
+                    autoplay
+                    loop
+                    src="https://cdn.prod.website-files.com/678005a5d025f688a34957f1/67840672d2c7cd35037e445d_Main%20Scene.json"
+                    style={{ height: "100%", width: "100%" }}
+                  />
+                </div>
+                <div className="text-sm font-medium">Start today</div>
               </div>
+
               <div
                 style={{ opacity: 100 }}
                 className="hero__member-card-header"
@@ -35,18 +48,15 @@ const PricingCard = () => {
                 Designjoy
               </div>
             </div>
+
             <Image
-              className="image-10"
-              src="/images/images2/colorsmile.png"
-              alt="smiles"
-              style={{
-                opacity: 100,
-                transform:
-                  "translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)",
-              }}
+              sizes="(max-width: 688px) 100vw, 688px"
+              alt="card"
+              src="/images/smileHero.png"
+              loading="lazy"
               width={1631}
               height={1000}
-              loading="lazy"
+              className="image-10 animate-floatComplex3"
             />
           </div>
           <div style={{ opacity: 100 }} className="pricing__card">

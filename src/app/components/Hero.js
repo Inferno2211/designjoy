@@ -131,15 +131,7 @@ const Hero = () => {
                     height={34}
                   />
                 </a>
-                {/* <Image
-                  sizes="(max-width: 688px) 100vw, 688px"
-                  alt="card"
-                  src="/images/smileHero.png"
-                  loading="lazy"
-                  width={688}
-                  height={460}
-                  className="hero__member-card-mockup"
-                /> */}
+
                 <Image
                   sizes="(max-width: 688px) 100vw, 688px"
                   alt="card"
