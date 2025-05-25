@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 const Hiw = () => {
+  const [flipped, setFlipped] = useState(false);
   return (
     <div className="hiw">
       <div className="container mmmm">
@@ -39,7 +42,7 @@ const Hiw = () => {
               <div className="receive__image-wrapper">
                 <div className="marquees">
                   <div className="marquee-1 _2">
-                    <div className="marquee-1-inner">
+                    <div className="marquee-1-inner animate-marquee">
                       <div className="marquee-1-element">
                         <div className="service-pill">Mobile apps</div>
                         <div className="service-pill">Presentations</div>
@@ -57,7 +60,7 @@ const Hiw = () => {
                     </div>
                   </div>
                   <div className="marquee-1 _2 _4455">
-                    <div className="marquee-1-inner _6886">
+                    <div className="marquee-1-inner _6886 animate-marquee">
                       <div className="marquee-1-element">
                         <div className="service-pill">Webflow</div>
                         <div className="service-pill">Print design</div>
@@ -81,7 +84,7 @@ const Hiw = () => {
                     </div>
                   </div>
                   <div className="marquee-1 _2">
-                    <div className="marquee-1-inner">
+                    <div className="marquee-1-inner animate-marquee">
                       <div className="marquee-1-element">
                         <div className="service-pill">Branding</div>
                         <div className="service-pill">Email</div>
@@ -98,13 +101,7 @@ const Hiw = () => {
                       </div>
                     </div>
                   </div>
-                  <div
-                    style={{
-                      transform:
-                        "translate3d(-50px, -50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                    }}
-                    className="request__block"
-                  >
+                  <div className=" request__block">
                     <Image
                       style={{ opacity: 100 }}
                       src="/images/smileLogo.png"
@@ -126,21 +123,28 @@ const Hiw = () => {
                 </p>
               </div>
               <div className="div-block-2">
-                <div style={{ opacity: 100 }} className="stack">
+                <div
+                  style={{ opacity: 100 }}
+                  className="stack cursor-pointer"
+                  onMouseEnter={() => setFlipped(true)}
+                  onMouseLeave={() => setFlipped(false)}
+                >
                   <div
-                    style={{
-                      transform:
-                        "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(9deg) skew(0, 0)",
-                    }}
                     className="front-design"
-                  ></div>
-                  <div className="middle-design"></div>
-                  <div
                     style={{
-                      transform:
-                        "translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-23deg) skew(0, 0)",
+                      transform: `rotate(${flipped ? 18 : 9}deg)`,
+                      transition: "transform 0.5s ease-in-out",
                     }}
+                  ></div>
+
+                  <div className="middle-design"></div>
+
+                  <div
                     className="bottom-design"
+                    style={{
+                      transform: `rotate(${flipped ? -30 : -23}deg)`,
+                      transition: "transform 0.5s ease-in-out",
+                    }}
                   ></div>
                 </div>
               </div>

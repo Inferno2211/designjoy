@@ -1,4 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  {
+    ssr: false,
+  }
+);
 
 const Hero = () => {
   return (
@@ -65,20 +75,18 @@ const Hero = () => {
             </div>
             <div className="div-block-37">
               <div className="hero__member-card">
-                <div className="hero__member-card-badge">
-                  {/* Lottie animation will be handled later or replaced with a static image */}
-                  <div className="lottie-animation-5">
-                    <Image
-                      loading="lazy"
-                      src="/images/images2/dot.svg"
-                      alt="card icon"
-                      width={27}
-                      height={27}
-                      className="image2"
+                <div className="hero__member-card-badge flex items-center gap-0 ">
+                  <div className="lottie-animation-5 w-[30px] h-[30px]">
+                    <Player
+                      autoplay
+                      loop
+                      src="https://cdn.prod.website-files.com/678005a5d025f688a34957f1/67840672d2c7cd35037e445d_Main%20Scene.json"
+                      style={{ height: "100%", width: "100%" }}
                     />
                   </div>
-                  <div>Start today</div>
+                  <div className="text-sm font-medium">Start today</div>
                 </div>
+
                 <div className="hero__member-card-splash">
                   <div className="hero__member-card-header">Join</div>
                   <div className="hero__member-card-header">Designjoy</div>
@@ -103,8 +111,8 @@ const Hero = () => {
                       loading="lazy"
                       src="/images/images2/smileface.png"
                       alt="card icon"
-                      width={40}
-                      height={40}
+                      width={50}
+                      height={50}
                       className="image2"
                     />
 
@@ -123,7 +131,7 @@ const Hero = () => {
                     height={34}
                   />
                 </a>
-                <Image
+                {/* <Image
                   sizes="(max-width: 688px) 100vw, 688px"
                   alt="card"
                   src="/images/smileHero.png"
@@ -131,6 +139,15 @@ const Hero = () => {
                   width={688}
                   height={460}
                   className="hero__member-card-mockup"
+                /> */}
+                <Image
+                  sizes="(max-width: 688px) 100vw, 688px"
+                  alt="card"
+                  src="/images/smileHero.png"
+                  loading="lazy"
+                  width={688}
+                  height={460}
+                  className="hero__member-card-mockup animate-floatComplex2"
                 />
               </div>
             </div>
