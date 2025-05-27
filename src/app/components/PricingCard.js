@@ -12,6 +12,15 @@ const Player = dynamic(
 
 // Animation variants
 const fadeInUp = {
+  initial: { opacity: 0, y: 100 },
+  animate: { opacity: 1, y: 0 },
+  transition: { 
+    duration: 0.8,
+    ease: [0.42, 0, 0.58, 1.0]
+  }
+};
+
+const fadeInDown = {
   initial: { opacity: 0, y: -100 },
   animate: { opacity: 1, y: 0 },
   transition: { 
@@ -122,10 +131,10 @@ const PricingCard = () => {
 
             <motion.div 
               className="image-10"
-              initial={fadeInUp.initial}
-              whileInView={fadeInUp.animate}
+              initial={fadeInDown.initial}
+              whileInView={fadeInDown.animate}
               viewport={{ once: true }}
-              transition={{ ...fadeInUp.transition, delay: 1 }}
+              transition={{ ...fadeInDown.transition, delay: 1 }}
             >
               <Image
                 sizes="(max-width: 688px) 100vw, 688px"

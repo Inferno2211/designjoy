@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const fadeInUp = {
   initial: { opacity: 0, y: 100 },
   animate: { opacity: 1, y: 0 },
-  transition: { 
+  transition: {
     duration: 0.8,
     ease: [0.42, 0, 0.58, 1.0]
   }
@@ -99,7 +99,7 @@ const PricingDetails = () => {
       <div className="container m-t-0">
         <div className="inner-container">
           <div className="div-block-27">
-            <motion.div 
+            <motion.div
               className="div-block-28"
               initial={fadeInUp.initial}
               whileInView={fadeInUp.animate}
@@ -119,28 +119,36 @@ const PricingDetails = () => {
               </div>
 
               <div className="_44959">
-                <div>
-                  <div className="div-block-33">
-                    {awards.map((award, index) => (
-                      <AwardCard key={index} award={award} />
-                    ))}
-                  </div>
-                </div>
-                <div className="hiw__card-header left _4">Recent work</div>
-                <p className="hero__left-bottom-p m-t-12 left">
-                  We&apos;re talking &quot;Product of the Year&quot; good.
-                </p>
-                <a
-                  href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&type=design&node-id=906-2343&viewport=450%2C721%2C0.13&t=ZYPXbxSFD1m31WCi-1&scaling=min-zoom&mode=design"
-                  target="_blank"
-                  className="button-filled m-t-24 m-t-12 w-inline-block"
+                <motion.div
+                  className="div-block-28"
+                  initial={fadeInUp.initial}
+                  whileInView={fadeInUp.animate}
+                  viewport={{ once: true }}
+                  transition={fadeInUp.transition}
                 >
-                  <div>See recent work</div>
-                </a>
+                  <div>
+                    <div className="div-block-33">
+                      {awards.map((award, index) => (
+                        <AwardCard key={index} award={award} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="hiw__card-header left _4">Recent work</div>
+                  <p className="hero__left-bottom-p m-t-12 left">
+                    We&apos;re talking &quot;Product of the Year&quot; good.
+                  </p>
+                  <a
+                    href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&type=design&node-id=906-2343&viewport=450%2C721%2C0.13&t=ZYPXbxSFD1m31WCi-1&scaling=min-zoom&mode=design"
+                    target="_blank"
+                    className="button-filled m-t-24 m-t-12 w-inline-block"
+                  >
+                    <div>See recent work</div>
+                  </a>
+                </motion.div>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="async _4"
               initial={fadeInUp.initial}
               whileInView={fadeInUp.animate}
@@ -148,21 +156,29 @@ const PricingDetails = () => {
               transition={{ ...fadeInUp.transition, delay: 0.2 }}
             >
               <div>
-                <div className="div-block-29">
-                  {servicePills.map((pill, index) => (
-                    <div key={index} className={`new-service-pill ${pill === '+ more' ? 'more' : ''}`}>
-                      {pill}
-                    </div>
-                  ))}
-                </div>
-                <div className="div-block-31 _444">
-                  <div className="hiw__card-header">
-                    Apps, websites, logos & more
+                <motion.div
+                  className="div-block-28"
+                  initial={fadeInUp.initial}
+                  whileInView={fadeInUp.animate}
+                  viewport={{ once: true }}
+                  transition={fadeInUp.transition}
+                >
+                  <div className="div-block-29">
+                    {servicePills.map((pill, index) => (
+                      <div key={index} className={`new-service-pill ${pill === '+ more' ? 'more' : ''}`}>
+                        {pill}
+                      </div>
+                    ))}
                   </div>
-                  <p className="hero__left-bottom-p m-t-12">
-                    All the things you need under one roof.
-                  </p>
-                </div>
+                  <div className="div-block-31 _444">
+                    <div className="hiw__card-header">
+                      Apps, websites, logos & more
+                    </div>
+                    <p className="hero__left-bottom-p m-t-12">
+                      All the things you need under one roof.
+                    </p>
+                  </div>
+                </motion.div>
               </div>
               <Image
                 loading="lazy"
