@@ -112,13 +112,14 @@ const PricingCard = () => {
         <div className="pricing__flex">
           <div className="div-block-3">
             <div>
-              <div className="hero__member-card-badge flex items-center gap-0 px-1 py-1 rounded-full bg-black text-white mb-6">
-                <div className="relative w-[30px] h-[30px] flex items-center justify-center">
-                  {/* Blinking ring */}
-                  <span className="absolute w-[15px] h-[15px] rounded-full bg-yellow-400 opacity-40 animate-ping"></span>
-
-                  {/* Yellow dot */}
-                  <div className="bg-yellow-400 w-[10px] h-[10px] rounded-full z-10"></div>
+              <div className="hero__member-card-badge flex items-center gap-0 -mt-6 mb-6">
+                <div className="lottie-animation-5 w-[30px] h-[30px]">
+                  <Player
+                    autoplay
+                    loop
+                    src="https://cdn.prod.website-files.com/678005a5d025f688a34957f1/67840672d2c7cd35037e445d_Main%20Scene.json"
+                    style={{ height: "100%", width: "100%" }}
+                  />
                 </div>
                 <div className="text-sm font-medium ">Start today</div>
               </div>
