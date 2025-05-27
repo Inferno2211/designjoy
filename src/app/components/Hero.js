@@ -30,7 +30,7 @@ const Hero = () => {
                       alt=""
                       width={100}
                       height={24}
-                      className="image-23"
+                      className="image-23 animate-clip-smooth will-change-[clip-path] transform-gpu"
                     />
                   </div>
 
@@ -78,9 +78,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="div-block-37">
-              <div
-                className={`hero__member-card`}
-              >
+              <div className={`hero__member-card`}>
                 <div className="hero__member-card-badge flex items-center gap-0 ">
                   <div className="lottie-animation-5 w-[30px] h-[30px]">
                     <Player
@@ -102,7 +100,11 @@ const Hero = () => {
                   <a
                     style={{ opacity: 100 }}
                     href="#pricing"
-                    className={`button w-button ${isMemberCardVisible ? 'animate-float-up-bounce' : 'opacity-0'}`}
+                    className={`button w-button ${
+                      isMemberCardVisible
+                        ? "animate-float-up-bounce"
+                        : "opacity-0"
+                    }`}
                     ref={memberCardRef}
                   >
                     See pricing
@@ -111,7 +113,9 @@ const Hero = () => {
                 <a
                   style={{ opacity: 100 }}
                   href="#book"
-                  className={`hero__member-card-call w-inline-block ${isCallCardVisible ? 'animate-float-up' : 'opacity-0'}`}
+                  className={`hero__member-card-call w-inline-block ${
+                    isCallCardVisible ? "animate-float-up" : "opacity-0"
+                  }`}
                   ref={callCardRef}
                 >
                   <div className="hero__member-card-call-left">

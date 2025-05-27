@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import Script from "next/script";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
@@ -14,7 +14,10 @@ const Footer = () => {
             <div className="div-block-25 desktop">
               <div className="hero__left white">
                 <div className="hero__left-top">
-                  <a href="#" className="hero__logo-block invert w-inline-block">
+                  <a
+                    href="#"
+                    className="hero__logo-block invert w-inline-block"
+                  >
                     <Image
                       loading="lazy"
                       src="/images/images2/designlogo.svg"
@@ -82,7 +85,10 @@ const Footer = () => {
                 <div className={`text-block-6`}>
                   Designjoy is experiencing a high volume of bookings, so slots
                   are limited. For faster service, email{" "}
-                  <a href="mailto:hello@designjoy.co" className="text-link pink">
+                  <a
+                    href="mailto:hello@designjoy.co"
+                    className="text-link pink"
+                  >
                     hello@designjoy.co
                   </a>{" "}
                   for a same-day response.
