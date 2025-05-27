@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-// Testimonial data
 const testimonials = [
   {
     quote: "Designjoy shows that they know the art of subtlety.",
