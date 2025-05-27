@@ -109,7 +109,7 @@ const PricingCard = () => {
         <div className="pricing__flex">
           <div className="div-block-3">
             <div>
-              <div className="hero__member-card-badge flex items-center gap-0">
+              <div className="hero__member-card-badge flex items-center gap-0 -mt-6 mb-6">
                 <div className="lottie-animation-5 w-[30px] h-[30px]">
                   <Player
                     autoplay
