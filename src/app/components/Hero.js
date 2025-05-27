@@ -16,7 +16,7 @@ const Logo = () => (
     <div className="lottie-animation-4 _33">
       <Image
         loading="lazy"
-        src="/images/images2/designlogo.svg"
+        src="/image/designlogo.svg"
         alt=""
         width={100}
         height={24}
@@ -25,7 +25,7 @@ const Logo = () => (
     </div>
     <Image
       loading="lazy"
-      src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec19d7_Designjoy.svg"
+      src="/image/designjoy.svg"
       alt=""
       width={100}
       height={24}
@@ -47,7 +47,7 @@ const NavigationButtons = () => (
     <a href="#book" className="button-outline w-inline-block">
       <Image
         loading="lazy"
-        src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec19bf_Phone--Streamline-Ultimate%20(1).svg"
+        src="/image/bookacall.svg"
         alt="book a call"
         width={24}
         height={24}
@@ -61,18 +61,16 @@ const NavigationButtons = () => (
   </div>
 );
 
-// Member Card Badge Component
 const MemberCardBadge = () => (
-  <div className="hero__member-card-badge flex items-center gap-0">
-    <div className="lottie-animation-5 w-[30px] h-[30px]">
-      <Player
-        autoplay
-        loop
-        src="https://cdn.prod.website-files.com/678005a5d025f688a34957f1/67840672d2c7cd35037e445d_Main%20Scene.json"
-        style={{ height: "100%", width: "100%" }}
-      />
+  <div className="hero__member-card-badge flex items-center gap-0 px-1 py-1 rounded-full bg-black text-white">
+    <div className="relative w-[30px] h-[30px] flex items-center justify-center">
+      {/* Blinking ring */}
+      <span className="absolute w-[15px] h-[15px] rounded-full bg-yellow-400 opacity-40 animate-ping"></span>
+
+      {/* Yellow dot */}
+      <div className="bg-yellow-400 w-[10px] h-[10px] rounded-full z-10"></div>
     </div>
-    <div className="text-sm font-medium">Start today</div>
+    <div className="text-sm font-medium ">Start today</div>
   </div>
 );
 
@@ -88,13 +86,13 @@ const MemberCardCall = () => (
     transition={{
       duration: 0.8,
       delay: 0.2,
-      ease: [0.4, 0, 0.2, 1]
+      ease: [0.4, 0, 0.2, 1],
     }}
   >
     <div className="hero__member-card-call-left">
       <Image
         loading="lazy"
-        src="/images/images2/smileface.png"
+        src="/image/smileface.png"
         alt="card icon"
         width={50}
         height={50}
@@ -107,7 +105,7 @@ const MemberCardCall = () => (
     </div>
     <Image
       loading="lazy"
-      src="/images/images2/arrow.svg"
+      src="/image/arrow.svg"
       alt="arrow"
       width={34}
       height={34}
@@ -143,7 +141,7 @@ const Hero = () => {
             <div className="div-block-37">
               <div className="hero__member-card">
                 <MemberCardBadge />
-                
+
                 <div className="hero__member-card-splash">
                   <div className="hero__member-card-header">Join</div>
                   <div className="hero__member-card-header">Designjoy</div>
@@ -172,7 +170,7 @@ const Hero = () => {
                 <Image
                   sizes="(max-width: 688px) 100vw, 688px"
                   alt="card"
-                  src="/images/images2/colorsmile.png"
+                  src="/image/colorsmile.png"
                   loading="lazy"
                   width={688}
                   height={460}

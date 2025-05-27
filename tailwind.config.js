@@ -73,6 +73,20 @@ module.exports = {
           "0%": { clipPath: "inset(0 100% 0 0)", opacity: "1" },
           "100%": { clipPath: "inset(0 0% 0 0)", opacity: "1" },
         },
+        "pulse-ring": {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "0.6",
+          },
+          "70%": {
+            transform: "scale(1.6)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1.6)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         floatComplex2: "floatComplex2 14s ease-in-out infinite",
@@ -87,6 +101,7 @@ module.exports = {
         "float-down": "floatDown 0.8s ease-out 1s forwards",
         "clip-smooth": "smoothReveal 0.8s ease-in-out forwards",
         "slide-skew": "slideInSkewed 0.6s ease-out forwards",
+        "ping-fast": "ping 0.8s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },
