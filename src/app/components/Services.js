@@ -1,6 +1,10 @@
+'use client';
 import Image from "next/image";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Services = () => {
+  const [containerRef, isVisible] = useIntersectionObserver();
+
   return (
     <div className="services">
       <div className="container p-b-0">
@@ -23,7 +27,7 @@ const Services = () => {
               limited roster of clients at a time.
             </p>
           </div>
-          <div style={{ opacity: 100 }} className="hiw__header-wrapper">
+          <div style={{ opacity: 100 }} className={`hiw__header-wrapper ${isVisible ? 'animate-float-up-low' : ''}`} ref={containerRef}>
             <div className="eyebrow">Membership benefits</div>
             <h1 className="max">
               It&#x27;s{" "}

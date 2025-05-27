@@ -17,6 +17,50 @@ module.exports = {
           "75%": { transform: "translate3d(0px, -18px, 0px) rotateZ(-6.2deg)" },
           "100%": { transform: "translate3d(0px, 0px, 0px) rotateZ(0deg)" },
         },
+        floatUp: {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(60px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        floatUpBounce: {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(0px)"
+          },
+          "20%": { 
+            opacity: "0.3",
+            transform: "translateY(20px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        floatUpLow: {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(100px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        floatDown: {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(-100px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
         marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
@@ -31,6 +75,12 @@ module.exports = {
         floatComplex3: "floatComplex2 20s ease-in-out infinite",
         marquee: "marquee 9s linear infinite",
         "scroll-left": "scrollLeft 12s linear infinite",
+        "float-up": "floatUp 0.8s ease-out forwards",
+        "float-up-bounce": "floatUpBounce 1s ease-out forwards",
+        "float-up-low": "floatUpLow 0.8s ease-out forwards",
+        "float-up-low-delay-1": "floatUpLow 0.8s ease-out 0.2s forwards",
+        "float-up-low-delay-2": "floatUpLow 0.8s ease-out 0.4s forwards",
+        "float-down": "floatDown 0.8s ease-out 1s forwards",
       },
     },
   },

@@ -1,8 +1,11 @@
 'use client';
 import Image from "next/image";
 import Script from "next/script";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Footer = () => {
+  const [containerRef, isVisible] = useIntersectionObserver();
+
   return (
     <div id="book" className="footer">
       <div className="container hero-container foooooo">
@@ -72,10 +75,11 @@ const Footer = () => {
             <div
               data-w-id="4bf06ab7-87fa-09aa-0827-16307073412e"
               style={{ opacity: 100 }}
-              className="book-a-call-wrapper"
+              className={`book-a-call-wrapper ${isVisible ? 'animate-float-up' : 'opacity-0'}`}
+              ref={containerRef}
             >
-              <div className="div-block-38">
-                <div className="text-block-6">
+              {/* <div className="div-block-38">
+                <div className={`text-block-6`}>
                   Designjoy is experiencing a high volume of bookings, so slots
                   are limited. For faster service, email{" "}
                   <a href="mailto:hello@designjoy.co" className="text-link pink">
@@ -83,7 +87,7 @@ const Footer = () => {
                   </a>{" "}
                   for a same-day response.
                 </div>
-              </div>
+              </div> */}
               <div className="book-desktop w-embed w-script">
                 <div
                   style={{

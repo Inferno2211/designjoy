@@ -1,12 +1,16 @@
+'use client';
 import Image from "next/image";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const PricingDetails = () => {
+  const [containerRef, isVisible] = useIntersectionObserver();
+
   return (
     <div className="pricing p-b-120">
       <div className="container m-t-0">
         <div className="inner-container">
-          <div className="div-block-27">
-            <div style={{ opacity: 100 }} className="div-block-28">
+          <div className="div-block-27" ref={containerRef}>
+            <div className={`div-block-28 ${isVisible ? 'animate-float-up-low' : 'opacity-0'}`}>
               <div className="marquee overflow-hidden">
                 <div className="marquee-inner flex whitespace-nowrap animate-scroll-left w-[200%]">
                   <div className="marquee-element w-[1/2] flex-shrink-0">
@@ -123,7 +127,7 @@ const PricingDetails = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ opacity: 100 }} className="_44959">
+              <div className="_44959">
                 <div>
                   <div className="div-block-33">
                     <div className="div-block-34">
@@ -191,9 +195,9 @@ const PricingDetails = () => {
                 </a>
               </div>
             </div>
-            <div style={{ opacity: 100 }} className="async _4">
+            <div className={`async _4 ${isVisible ? 'animate-float-up-low-delay-1' : 'opacity-0'}`}>
               <div>
-                <div style={{ opacity: 100 }} className="div-block-29">
+                <div className="div-block-29">
                   <div className="new-service-pill">Web design</div>
                   <div className="new-service-pill">Logos</div>
                   <div className="new-service-pill">Slide decks</div>

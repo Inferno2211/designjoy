@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Hiw = () => {
   const [flipped, setFlipped] = useState(false);
+  const [containerRef, isVisible] = useIntersectionObserver();
+
   return (
-    <div className="hiw">
+    <div className="hiw" ref={containerRef}>
       <div className="container mmmm">
         <div className="inner-container">
           <div className="hiw__header-wrapper">
@@ -14,8 +17,15 @@ const Hiw = () => {
               been done in the first place
             </h2>
           </div>
-          <div className="w-layout-grid hiw__grid">
-            <div style={{ opacity: 100 }} className="hiw__card">
+          <div className="w-layout-grid hiw__grid" ref={containerRef}>
+            <div
+              className={`hiw__card ${isVisible ? 'animate-float-up-low' : ''}`}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
+                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+              }}
+            >
               <div className="hiw__card-gradient">
                 <div className="hiw__card-header">Subscribe</div>
                 <p className="hiw__card-p text-black _2">
@@ -32,7 +42,14 @@ const Hiw = () => {
                 className="image-3"
               />
             </div>
-            <div style={{ opacity: 100 }} className="hiw__card _2">
+            <div
+              className={`hiw__card _2 ${isVisible ? 'animate-float-up-low-delay-1' : ''}`}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
+                transition: 'opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s'
+              }}
+            >
               <div className="hiw__card-gradient _2">
                 <div className="hiw__card-header">Request</div>
                 <p className="hiw__card-p">
@@ -115,7 +132,14 @@ const Hiw = () => {
                 </div>
               </div>
             </div>
-            <div style={{ opacity: 100 }} className="hiw__card _3">
+            <div
+              className={`hiw__card _3 ${isVisible ? 'animate-float-up-low-delay-2' : ''}`}
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
+                transition: 'opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s'
+              }}
+            >
               <div className="hiw__card-gradient _3">
                 <div className="hiw__card-header">Receive</div>
                 <p className="hiw__card-p">
@@ -191,7 +215,7 @@ const Hiw = () => {
         <div className="grid-line-right"></div>
         <div className="grid-line-left"></div>
       </div>
-    </div>
+    </div >
   );
 };
 

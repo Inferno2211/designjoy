@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const faqData = [
@@ -76,6 +76,47 @@ const faqData = [
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isVisible, setIsVisible] = useState({
+    card: false,
+    button: false,
+    email: false
+  });
+
+  const cardRef = useRef(null);
+  const buttonRef = useRef(null);
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === cardRef.current) {
+              setIsVisible(prev => ({ ...prev, card: true }));
+            } else if (entry.target === buttonRef.current) {
+              setIsVisible(prev => ({ ...prev, button: true }));
+            } else if (entry.target === emailRef.current) {
+              setIsVisible(prev => ({ ...prev, email: true }));
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px"
+      }
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+    if (buttonRef.current) observer.observe(buttonRef.current);
+    if (emailRef.current) observer.observe(emailRef.current);
+
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+      if (buttonRef.current) observer.unobserve(buttonRef.current);
+      if (emailRef.current) observer.unobserve(emailRef.current);
+    };
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -143,7 +184,10 @@ export default function Faq() {
               </div>
             </div>
             <div className="faq__card">
-              <div className="faq__card-inner">
+              <div 
+                ref={cardRef}
+                className={`faq__card-inner ${isVisible.card ? 'animate-float-up' : 'opacity-0'}`}
+              >
                 <Image
                   loading="lazy"
                   src="/images/images2/smileface2.png"
@@ -155,13 +199,18 @@ export default function Faq() {
                 <div className="hero__member-card-header _2">
                   Book a 15-min intro call
                 </div>
-                <a href="#book" className="button w-button">
+                <a 
+                  ref={buttonRef}
+                  href="#book" 
+                  className={`button w-button ${isVisible.button ? 'animate-float-up-bounce' : 'opacity-0'}`}
+                >
                   Book a call
                 </a>
               </div>
               <a
+                ref={emailRef}
                 href="mailto:hello@designjoy.co?subject=Website%20Inquiry"
-                className="hero__member-card-call w-inline-block"
+                className={`hero__member-card-call w-inline-block ${isVisible.email ? 'animate-float-up-low' : 'opacity-0'}`}
               >
                 <div className="hero__member-card-call-left">
                   <Image

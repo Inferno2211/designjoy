@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 const Player = dynamic(
   () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
   {
@@ -10,20 +10,22 @@ const Player = dynamic(
 );
 
 const PricingCard = () => {
+  const [containerRef, isVisible] = useIntersectionObserver();
+  const [imageRef, isImageVisible] = useIntersectionObserver();
   return (
     <div id="pricing" className="pricing">
       <div className="container p-b-0 p-t-0">
-        <div style={{ opacity: 100 }} className="hiw__header-wrapper">
+        <div className={`hiw__header-wrapper ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
           <div className="eyebrow">PRICING</div>
           <h1 className="dddd">
             One subscription,{" "}
             <span className="text-italics">endless possibilities</span>
           </h1>
         </div>
-        <div className="pricing__flex">
-          <div style={{ opacity: 100 }} className="div-block-3">
-            <div>
-              <div className="hero__member-card-badge flex items-center gap-0 ">
+        <div className={`pricing__flex ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+          <div className={`div-block-3 ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+            <div className={`${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+              <div className={`hero__member-card-badge flex items-center gap-0 ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
                 <div className="lottie-animation-5 w-[30px] h-[30px]">
                   <Player
                     autoplay
@@ -35,31 +37,27 @@ const PricingCard = () => {
                 <div className="text-sm font-medium">Start today</div>
               </div>
 
-              <div
-                style={{ opacity: 100 }}
-                className="hero__member-card-header"
-              >
+              <div className={`hero__member-card-header ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
                 Join
               </div>
-              <div
-                style={{ opacity: 100 }}
-                className="hero__member-card-header bottom"
-              >
+              <div className={`hero__member-card-header bottom ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
                 Designjoy
               </div>
             </div>
 
-            <Image
-              sizes="(max-width: 688px) 100vw, 688px"
-              alt="card"
-              src="/images/smileHero.png"
-              loading="lazy"
-              width={1631}
-              height={1000}
-              className="image-10 animate-floatComplex3"
-            />
+            <div className={`image-10 ${isImageVisible ? 'animate-float-down opacity-100' : 'opacity-0'} transition-all duration-700`} ref={imageRef}>
+              <Image
+                sizes="(max-width: 688px) 100vw, 688px"
+                alt="card"
+                src="/images/images2/colorsmile.png"
+                loading="lazy"
+                width={1631}
+                height={1000}
+                className={`${isImageVisible ? 'animate-floatComplex2' : ''}`}
+              />
+            </div>
           </div>
-          <div style={{ opacity: 100 }} className="pricing__card">
+          <div style={{ opacity: 100 }} className={`pricing__card ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
             <div className="div-block-4">
               <div className="pricing__card-header">Monthly Club</div>
               <div className="div-block-5">

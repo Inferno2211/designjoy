@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Player = dynamic(
   () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
@@ -11,6 +12,9 @@ const Player = dynamic(
 );
 
 const Hero = () => {
+  const [memberCardRef, isMemberCardVisible] = useIntersectionObserver();
+  const [callCardRef, isCallCardVisible] = useIntersectionObserver();
+
   return (
     <div className="hero">
       <div className="container hero-container">
@@ -74,7 +78,9 @@ const Hero = () => {
               </div>
             </div>
             <div className="div-block-37">
-              <div className="hero__member-card">
+              <div
+                className={`hero__member-card`}
+              >
                 <div className="hero__member-card-badge flex items-center gap-0 ">
                   <div className="lottie-animation-5 w-[30px] h-[30px]">
                     <Player
@@ -96,7 +102,8 @@ const Hero = () => {
                   <a
                     style={{ opacity: 100 }}
                     href="#pricing"
-                    className="button w-button"
+                    className={`button w-button ${isMemberCardVisible ? 'animate-float-up-bounce' : 'opacity-0'}`}
+                    ref={memberCardRef}
                   >
                     See pricing
                   </a>
@@ -104,7 +111,8 @@ const Hero = () => {
                 <a
                   style={{ opacity: 100 }}
                   href="#book"
-                  className="hero__member-card-call w-inline-block"
+                  className={`hero__member-card-call w-inline-block ${isCallCardVisible ? 'animate-float-up' : 'opacity-0'}`}
+                  ref={callCardRef}
                 >
                   <div className="hero__member-card-call-left">
                     <Image
