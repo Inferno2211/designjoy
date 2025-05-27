@@ -87,6 +87,7 @@ module.exports = {
         "float-down": "floatDown 0.8s ease-out 1s forwards",
         "clip-smooth": "smoothReveal 0.8s ease-in-out forwards",
         "slide-skew": "slideInSkewed 0.6s ease-out forwards",
+        "ping-fast": "ping 2s cubic-bezier(0, 0, 0.2 , 1) infinite",
       },
     },
   },

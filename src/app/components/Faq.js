@@ -86,7 +86,7 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => (
           marginBottom: "0",
           fontSize: "16px",
           lineHeight: "20px",
-          color: "#99948f"
+          color: "#99948f",
         }}
       >
         {answer.split("\n\n").map((paragraph, i) => (
@@ -103,14 +103,14 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => (
       </p>
     </div>
     <Image
-      src="/chevron-down.svg"
+      src="/image/chevron-down.svg"
       alt=""
       width={24}
       height={24}
       className="faq__arrow"
       style={{
         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-        transition: "transform 0.3s ease"
+        transition: "transform 0.3s ease",
       }}
     />
   </div>
@@ -118,13 +118,15 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => (
 
 const FaqCard = ({ isVisible, cardRef, buttonRef, emailRef }) => (
   <div className="faq__card">
-    <div 
+    <div
       ref={cardRef}
-      className={`faq__card-inner ${isVisible.card ? 'animate-float-up' : 'opacity-0'}`}
+      className={`faq__card-inner ${
+        isVisible.card ? "animate-float-up" : "opacity-0"
+      }`}
     >
       <Image
         loading="lazy"
-        src="/images/images2/smileface2.png"
+        src="/image/smileface2.png"
         alt=""
         width={130}
         height={115}
@@ -133,10 +135,12 @@ const FaqCard = ({ isVisible, cardRef, buttonRef, emailRef }) => (
       <div className="hero__member-card-header _2">
         Book a 15-min intro call
       </div>
-      <a 
+      <a
         ref={buttonRef}
-        href="#book" 
-        className={`button w-button ${isVisible.button ? 'animate-float-up-bounce' : 'opacity-0'}`}
+        href="#book"
+        className={`button w-button ${
+          isVisible.button ? "animate-float-up-bounce" : "opacity-0"
+        }`}
       >
         Book a call
       </a>
@@ -144,12 +148,14 @@ const FaqCard = ({ isVisible, cardRef, buttonRef, emailRef }) => (
     <a
       ref={emailRef}
       href="mailto:hello@designjoy.co?subject=Website%20Inquiry"
-      className={`hero__member-card-call w-inline-block ${isVisible.email ? 'animate-float-up-low' : 'opacity-0'}`}
+      className={`hero__member-card-call w-inline-block ${
+        isVisible.email ? "animate-float-up-low" : "opacity-0"
+      }`}
     >
       <div className="hero__member-card-call-left">
         <Image
           loading="lazy"
-          src="/images/images2/faqarrow.png"
+          src="/image/faqarrow.png"
           alt=""
           width={30}
           height={30}
@@ -164,7 +170,7 @@ const FaqCard = ({ isVisible, cardRef, buttonRef, emailRef }) => (
       </div>
       <Image
         loading="lazy"
-        src="images/images2/arrow.svg"
+        src="image/arrow.svg"
         alt=""
         width={34}
         height={34}
@@ -178,7 +184,7 @@ export default function Faq() {
   const [isVisible, setIsVisible] = useState({
     card: false,
     button: false,
-    email: false
+    email: false,
   });
 
   const cardRef = useRef(null);
@@ -191,18 +197,18 @@ export default function Faq() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.target === cardRef.current) {
-              setIsVisible(prev => ({ ...prev, card: true }));
+              setIsVisible((prev) => ({ ...prev, card: true }));
             } else if (entry.target === buttonRef.current) {
-              setIsVisible(prev => ({ ...prev, button: true }));
+              setIsVisible((prev) => ({ ...prev, button: true }));
             } else if (entry.target === emailRef.current) {
-              setIsVisible(prev => ({ ...prev, email: true }));
+              setIsVisible((prev) => ({ ...prev, email: true }));
             }
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: "0px"
+        rootMargin: "0px",
       }
     );
 
@@ -236,7 +242,9 @@ export default function Faq() {
                     key={index}
                     {...faq}
                     isOpen={openIndex === index}
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    onClick={() =>
+                      setOpenIndex(openIndex === index ? null : index)
+                    }
                   />
                 ))}
               </div>

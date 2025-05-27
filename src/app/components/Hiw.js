@@ -8,26 +8,26 @@ import { motion } from "framer-motion";
 const cardAnimation = {
   initial: { opacity: 0, y: 100 },
   animate: { opacity: 1, y: 0 },
-  transition: { 
+  transition: {
     duration: 0.8,
-    ease: [0.42, 0, 0.58, 1.0]
-  }
+    ease: [0.42, 0, 0.58, 1.0],
+  },
 };
 
 // Service pills data
 const servicePills = [
   ["Mobile apps", "Presentations", "Logos", "Social Media", "Email"],
   ["Webflow", "Print design", "Packaging", "Ad creative", "Landing pages"],
-  ["Branding", "Email", "Display ads", "Packaging", "User interface"]
+  ["Branding", "Email", "Display ads", "Packaging", "User interface"],
 ];
 
 // Logo data
 const logos = [
-  { src: "/images/images2/nectar.svg", width: 122, height: 20 },
-  { src: "/images/images2/buycoffee.svg", width: 151, height: 33 },
-  { src: "/images/images2/beehiiv.svg", width: 105, height: 26 },
-  { src: "/images/images2/laravel.svg", width: 79, height: 19 },
-  { src: "/images/images2/xfinity.svg", width: 74, height: 25 }
+  { src: "/image/nectar.svg", width: 122, height: 20 },
+  { src: "/image/buycoffee.svg", width: 151, height: 33 },
+  { src: "/image/beehiiv.svg", width: 105, height: 26 },
+  { src: "/image/laravel.svg", width: 79, height: 19 },
+  { src: "/image/xfinity.svg", width: 74, height: 25 },
 ];
 
 const ServiceMarquee = ({ pills }) => (
@@ -35,21 +35,34 @@ const ServiceMarquee = ({ pills }) => (
     <div className="marquee-1-inner animate-marquee">
       <div className="marquee-1-element">
         {pills.map((pill, index) => (
-          <div key={index} className="service-pill">{pill}</div>
+          <div key={index} className="service-pill">
+            {pill}
+          </div>
         ))}
       </div>
       <div className="marquee-1-element">
         {pills.map((pill, index) => (
-          <div key={index} className="service-pill">{pill}</div>
+          <div key={index} className="service-pill">
+            {pill}
+          </div>
         ))}
       </div>
     </div>
   </div>
 );
 
-const HiwCard = ({ className, header, description, children, delay = 0, isVisible }) => (
+const HiwCard = ({
+  className,
+  header,
+  description,
+  children,
+  delay = 0,
+  isVisible,
+}) => (
   <motion.div
-    className={`hiw__card ${className} ${isVisible ? `animate-float-up-low${delay ? `-delay-${delay}` : ''}` : ''}`}
+    className={`hiw__card ${className} ${
+      isVisible ? `animate-float-up-low${delay ? `-delay-${delay}` : ""}` : ""
+    }`}
     initial={cardAnimation.initial}
     whileInView={cardAnimation.animate}
     viewport={{ once: true }}
@@ -73,18 +86,19 @@ const Hiw = () => {
         <div className="inner-container">
           <div className="hiw__header-wrapper">
             <h2>
-              The way design <span className="text-italics">should&apos;ve</span>{" "}
-              been done in the first place
+              The way design{" "}
+              <span className="text-italics">should&apos;ve</span> been done in
+              the first place
             </h2>
           </div>
           <div className="w-layout-grid hiw__grid" ref={containerRef}>
-            <HiwCard 
+            <HiwCard
               header="Subscribe"
               description="Subscribe to a plan & request as many designs as you'd like."
               isVisible={isVisible}
             >
               <Image
-                src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec1977_price.svg"
+                src="/image/price.svg"
                 alt="price image"
                 width={530}
                 height={300}
@@ -92,7 +106,7 @@ const Hiw = () => {
                 className="image-3"
               />
             </HiwCard>
-            <HiwCard 
+            <HiwCard
               className="_2"
               header="Request"
               description="Request whatever you'd like, from mobile apps to logos."
@@ -112,7 +126,7 @@ const Hiw = () => {
                       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
                       <Image
-                        src="/images/smile.png"
+                        src="/image/smile.png"
                         alt=""
                         width={70}
                         height={70}
@@ -125,7 +139,7 @@ const Hiw = () => {
                 </div>
               </div>
             </HiwCard>
-            <HiwCard 
+            <HiwCard
               className="_3"
               header="Receive"
               description="Receive your design within two business days on average."
@@ -174,7 +188,7 @@ const Hiw = () => {
         <div className="grid-line-right"></div>
         <div className="grid-line-left"></div>
       </div>
-    </div >
+    </div>
   );
 };
 

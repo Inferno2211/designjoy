@@ -16,8 +16,8 @@ const fadeInUp = {
   animate: { opacity: 1, y: 0 },
   transition: {
     duration: 0.8,
-    ease: [0.42, 0, 0.58, 1.0]
-  }
+    ease: [0.42, 0, 0.58, 1.0],
+  },
 };
 
 const fadeInDown = {
@@ -25,8 +25,8 @@ const fadeInDown = {
   animate: { opacity: 1, y: 0 },
   transition: {
     duration: 0.8,
-    ease: [0.42, 0, 0.58, 1.0]
-  }
+    ease: [0.42, 0, 0.58, 1.0],
+  },
 };
 
 // Pricing features data
@@ -35,42 +35,45 @@ const pricingFeatures = {
     "One request at a time",
     "Avg. 48 hour delivery",
     "Unlimited brands",
-    "Webflow development"
+    "Webflow development",
   ],
-  right: [
-    "Unlimited stock photos",
-    "Up to 2 users",
-    "Pause or cancel anytime"
-  ]
+  right: ["Unlimited stock photos", "Up to 2 users", "Pause or cancel anytime"],
 };
 
 // Logo data
 const logos = [
-  { src: "/images/images2/nectar.svg", width: 122, height: 20 },
-  { src: "/images/images2/buycoffee.svg", width: 151, height: 33 },
-  { src: "/images/images2/beehiiv.svg", width: 105, height: 26 },
-  { src: "/images/images2/laravel.svg", width: 79, height: 19 },
-  { src: "/images/images2/xfinity.svg", width: 74, height: 25 }
+  { src: "/image/nectar.svg", width: 122, height: 20 },
+  { src: "/image/buycoffee.svg", width: 151, height: 33 },
+  { src: "/image/beehiiv.svg", width: 105, height: 26 },
+  { src: "/image/laravel.svg", width: 79, height: 19 },
+  { src: "/image/xfinity.svg", width: 74, height: 25 },
 ];
 
 // Feature card data
 const featureCards = [
   {
-    icon: "/images/images2/pause.svg",
+    icon: "/image/pause.svg",
     title: "Pause anytime",
     description: "Temporarily pause your subscription anytime, no sweat.",
-    className: "_1"
+    className: "_1",
   },
   {
-    icon: "/images/images2/tickmark.svg",
+    icon: "/image/tickmark.svg",
     title: "Try it for a week",
-    description: "Not loving it after a week? Get 75% back, no questions asked.",
+    description:
+      "Not loving it after a week? Get 75% back, no questions asked.",
     className: "",
-    iconClassName: "invert"
-  }
+    iconClassName: "invert",
+  },
 ];
 
-const FeatureCard = ({ icon, title, description, className, iconClassName }) => (
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+  className,
+  iconClassName,
+}) => (
   <div className={`div-block-10 ${className}`}>
     <div className={`div-block-11 ${className === "_1" ? "" : "_2"}`}>
       <div className="div-block-12">
@@ -118,15 +121,11 @@ const PricingCard = () => {
                     style={{ height: "100%", width: "100%" }}
                   />
                 </div>
-                <div className="text-sm font-medium">Start today</div>
+                <div className="text-sm font-medium ">Start today</div>
               </div>
 
-              <div className="hero__member-card-header">
-                Join
-              </div>
-              <div className="hero__member-card-header bottom">
-                Designjoy
-              </div>
+              <div className="hero__member-card-header">Join</div>
+              <div className="hero__member-card-header bottom">Designjoy</div>
             </div>
 
             <motion.div
@@ -139,7 +138,7 @@ const PricingCard = () => {
               <Image
                 sizes="(max-width: 688px) 100vw, 688px"
                 alt="card"
-                src="/images/images2/colorsmile.png"
+                src="/image/colorsmile.png"
                 loading="lazy"
                 width={1631}
                 height={1000}
@@ -184,7 +183,7 @@ const PricingCard = () => {
                 <div className="div-block-8">
                   <Image
                     loading="lazy"
-                    src="/images/images2/designlogo.svg"
+                    src="/image/designlogo.svg"
                     alt=""
                     width={24}
                     height={24}
@@ -195,7 +194,7 @@ const PricingCard = () => {
             </div>
             <Image
               loading="lazy"
-              src="/images/images2/yellowface.svg"
+              src="/image/yellowface.svg"
               alt=""
               width={265}
               height={264}
