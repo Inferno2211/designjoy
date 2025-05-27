@@ -73,7 +73,7 @@ const Hiw = () => {
         <div className="inner-container">
           <div className="hiw__header-wrapper">
             <h2>
-              The way design <span className="text-italics">should've</span>{" "}
+              The way design <span className="text-italics">should&apos;ve</span>{" "}
               been done in the first place
             </h2>
           </div>

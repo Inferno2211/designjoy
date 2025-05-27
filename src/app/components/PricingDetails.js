@@ -128,7 +128,7 @@ const PricingDetails = () => {
                 </div>
                 <div className="hiw__card-header left _4">Recent work</div>
                 <p className="hero__left-bottom-p m-t-12 left">
-                  We're talking "Product of the Year" good.
+                  We&apos;re talking &quot;Product of the Year&quot; good.
                 </p>
                 <a
                   href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&type=design&node-id=906-2343&viewport=450%2C721%2C0.13&t=ZYPXbxSFD1m31WCi-1&scaling=min-zoom&mode=design"
