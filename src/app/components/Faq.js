@@ -206,14 +206,18 @@ export default function Faq() {
       }
     );
 
-    if (cardRef.current) observer.observe(cardRef.current);
-    if (buttonRef.current) observer.observe(buttonRef.current);
-    if (emailRef.current) observer.observe(emailRef.current);
+    const currentCardRef = cardRef.current;
+    const currentButtonRef = buttonRef.current;
+    const currentEmailRef = emailRef.current;
+
+    if (currentCardRef) observer.observe(currentCardRef);
+    if (currentButtonRef) observer.observe(currentButtonRef);
+    if (currentEmailRef) observer.observe(currentEmailRef);
 
     return () => {
-      if (cardRef.current) observer.unobserve(cardRef.current);
-      if (buttonRef.current) observer.unobserve(buttonRef.current);
-      if (emailRef.current) observer.unobserve(emailRef.current);
+      if (currentCardRef) observer.unobserve(currentCardRef);
+      if (currentButtonRef) observer.unobserve(currentButtonRef);
+      if (currentEmailRef) observer.unobserve(currentEmailRef);
     };
   }, []);
 

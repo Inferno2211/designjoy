@@ -103,7 +103,7 @@ const PricingDetails = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="hero__left-bottom-p m-t-12 left"
+                  className="hero__left-bottom-p left"
                 >
                   We&#x27;re talking &quot;Product of the Year&quot;&nbsp;good.
                 </motion.p>
@@ -113,7 +113,7 @@ const PricingDetails = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&amp;type=design&amp;node-id=906-2343&amp;viewport=450%2C721%2C0.13&amp;t=ZYPXbxSFD1m31WCi-1&amp;scaling=min-zoom&amp;mode=design"
                   target="_blank"
-                  className="button-filled m-t-24 m-t-12 w-inline-block"
+                  className="button-filled m-t-24 w-inline-block"
                 >
                   <div>See recent work</div>
                 </motion.a>
