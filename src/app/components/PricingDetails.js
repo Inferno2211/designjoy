@@ -1,17 +1,21 @@
 'use client';
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const PricingDetails = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <div className="pricing p-b-120">
       <div className="container m-t-0">
         <div className="inner-container">
-          <div className="div-block-27">
+          <div className="div-block-27" ref={ref}>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 100, y: 0 }}
+              animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5 }}
               className="div-block-28"
             >
@@ -37,7 +41,7 @@ const PricingDetails = () => {
               </div>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 100, y: 0 }}
+                animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5 }}
                 className="_44959"
               >
@@ -59,7 +63,7 @@ const PricingDetails = () => {
                         key={index} 
                         className="div-block-34"
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 100, y: 0 }}
+                        animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                       >
                         <div className="div-block-36">
@@ -89,7 +93,7 @@ const PricingDetails = () => {
                 </div>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 100, y: 0 }}
+                  animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5 }}
                   className="hiw__card-header left _4"
                 >
@@ -97,7 +101,7 @@ const PricingDetails = () => {
                 </motion.div>
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 100, y: 0 }}
+                  animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="hero__left-bottom-p m-t-12 left"
                 >
@@ -105,7 +109,7 @@ const PricingDetails = () => {
                 </motion.p>
                 <motion.a
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 100, y: 0 }}
+                  animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   href="https://www.figma.com/proto/wbWTRa1jCey4uhInRAmH1r/Latest-Projects?page-id=0%3A1&amp;type=design&amp;node-id=906-2343&amp;viewport=450%2C721%2C0.13&amp;t=ZYPXbxSFD1m31WCi-1&amp;scaling=min-zoom&amp;mode=design"
                   target="_blank"
@@ -117,14 +121,14 @@ const PricingDetails = () => {
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 100, y: 0 }}
+              animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="async _4"
             >
               <div>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 100, y: 0 }}
+                  animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5 }}
                   className="div-block-29"
                 >
@@ -138,7 +142,7 @@ const PricingDetails = () => {
                       key={index} 
                       className={`new-service-pill ${service === "+ more" ? "more" : ""}`}
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 100, y: 0 }}
+                      animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                     >
                       {service}
@@ -147,7 +151,7 @@ const PricingDetails = () => {
                 </motion.div>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 100, y: 0 }}
+                  animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5 }}
                   className="div-block-31 _444"
                 >
@@ -161,7 +165,7 @@ const PricingDetails = () => {
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 100, y: 0 }}
+                animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <Image
@@ -175,7 +179,7 @@ const PricingDetails = () => {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 100, y: 0 }}
+                animate={isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <Image
