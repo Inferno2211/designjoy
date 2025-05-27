@@ -98,7 +98,7 @@ const Hiw = () => {
               isVisible={isVisible}
             >
               <Image
-                src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec1977_price.svg"
+                src="/image/price.svg"
                 alt="price image"
                 width={530}
                 height={300}
@@ -126,7 +126,7 @@ const Hiw = () => {
                       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
                       <Image
-                        src="/images/smile.png"
+                        src="/image/smile.png"
                         alt=""
                         width={70}
                         height={70}

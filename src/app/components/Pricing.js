@@ -4,11 +4,11 @@ const testimonials = [
   {
     quote: "Designjoy shows that they know the art of subtlety.",
     company: {
-      logo: "/images/images2/webflow.svg",
+      logo: "/image/webflow.svg",
       width: 196,
       height: 33,
-      className: "image-12"
-    }
+      className: "image-12",
+    },
   },
   {
     quote: "Design is everything, and these guys have nailed it.",
@@ -16,13 +16,13 @@ const testimonials = [
       name: "Kevin O'Leary",
       role: "Shark Tank",
       image: {
-        src: "/images/images2/kevin.png",
+        src: "/image/kevin.png",
         width: 70,
         height: 70,
-        className: "image-13"
-      }
-    }
-  }
+        className: "image-13",
+      },
+    },
+  },
 ];
 
 const TestimonialCard = ({ testimonial }) => (

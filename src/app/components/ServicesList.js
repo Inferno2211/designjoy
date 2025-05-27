@@ -54,8 +54,8 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
 const itemVariants = {
@@ -65,72 +65,74 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
-    }
-  }
+      ease: "easeOut",
+    },
+  },
 };
 
 const services = [
   {
-    imgSrc: "/images/images2/servicelist1.png",
+    imgSrc: "/image/servicelist1.png",
     alt: "",
     width: 60,
     height: 60,
     header: "Design board",
     description: "Easily manage your design queue with a Trello board.",
     blockClass: "_1",
-    imgClass: "image-8"
+    imgClass: "image-8",
   },
   {
-    imgSrc: "/images/images2/lock.png",
+    imgSrc: "/image/lock.png",
     alt: "",
     width: 50,
     height: 50,
     header: "Fixed monthly rate",
     description: "No surprises here! Pay the same fixed price each month.",
     blockClass: "_3",
-    imgClass: "image-8 _4"
+    imgClass: "image-8 _4",
   },
   {
-    imgSrc: "/images/images2/arrowstream.png",
+    imgSrc: "/image/arrowstream.png",
     alt: "",
     width: 60,
     height: 60,
     header: "Fast delivery",
-    description: "Get your design one at a time in just a couple days on average.",
+    description:
+      "Get your design one at a time in just a couple days on average.",
     blockClass: "_2",
-    imgClass: "image-8 _3"
+    imgClass: "image-8 _3",
   },
   {
-    imgSrc: "/images/images2/star.png",
+    imgSrc: "/image/star.png",
     alt: "",
     width: 70,
     height: 70,
     header: "Top-notch quality",
-    description: "Senior-level design quality at your fingertips, whenever you need it.",
+    description:
+      "Senior-level design quality at your fingertips, whenever you need it.",
     blockClass: "_4",
-    imgClass: "image-8 _2"
+    imgClass: "image-8 _2",
   },
   {
-    imgSrc: "/images/images2/block.png",
+    imgSrc: "/image/block.png",
     alt: "",
     width: 60,
     height: 60,
     header: "Flexible and scalable",
     description: "Scale up or down as needed, and pause or cancel at anytime.",
     blockClass: "_5",
-    imgClass: "image-8"
+    imgClass: "image-8",
   },
   {
-    imgSrc: "/images/images2/nova.png",
+    imgSrc: "/image/nova.png",
     alt: "",
     width: 60,
     height: 60,
     header: "Unique and all yours",
     description: "Every design is made especially for you and is 100% yours.",
     blockClass: "_6",
-    imgClass: "image-8"
-  }
+    imgClass: "image-8",
+  },
 ];
 
 const ServiceCard = ({ service }) => (
@@ -152,7 +154,9 @@ const ServiceCard = ({ service }) => (
 
 const ScrollButton = ({ direction, onClick }) => (
   <motion.button
-    className={`${direction}-arrow-2 ${direction === 'right' ? 'ml-[22px]' : ''} transition-transform duration-200 ease-out hover:scale-[0.8]`}
+    className={`${direction}-arrow-2 ${
+      direction === "right" ? "ml-[22px]" : ""
+    } transition-transform duration-200 ease-out hover:scale-[0.8]`}
     onClick={onClick}
     aria-label={`Scroll ${direction}`}
     whileHover={{ scale: 0.8 }}
@@ -173,7 +177,7 @@ const ServicesList = () => {
         element: scrollRef.current,
         scrollAmount: amount,
         duration: 500,
-        delay: 50
+        delay: 50,
       });
     }
   };

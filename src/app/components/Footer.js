@@ -5,17 +5,19 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const LogoBlock = () => (
   <a href="#" className="hero__logo-block invert w-inline-block">
+    <div className="lottie-animation-4 _33">
+      <Image
+        loading="lazy"
+        src="/image/designlogo.svg"
+        alt=""
+        width={100}
+        height={24}
+        className="image-23 animate-clip-smooth will-change-[clip-path] transform-gpu"
+      />
+    </div>
     <Image
       loading="lazy"
-      src="/images/images2/designlogo.svg"
-      alt="Designjoy Logo"
-      width={24}
-      height={20}
-      className="mr-[6px]"
-    />
-    <Image
-      loading="lazy"
-      src="/images/images2/designjoy.svg"
+      src="/image/designjoy.svg"
       alt="Designjoy Logo"
       width={100}
       height={24}
@@ -50,7 +52,9 @@ const BookingCalendar = ({ isVisible, containerRef }) => (
   <div
     data-w-id="4bf06ab7-87fa-09aa-0827-16307073412e"
     style={{ opacity: 100 }}
-    className={`book-a-call-wrapper ${isVisible ? 'animate-float-up' : 'opacity-0'}`}
+    className={`book-a-call-wrapper ${
+      isVisible ? "animate-float-up" : "opacity-0"
+    }`}
     ref={containerRef}
   >
     <div className="book-desktop w-embed w-script">
@@ -104,7 +108,7 @@ const Footer = () => {
               <div className="smiles-desktop">
                 <Image
                   loading="lazy"
-                  src="/images/images2/smileyfaces.svg"
+                  src="/image/smileyfaces.svg"
                   alt="Smiley faces"
                   width={700}
                   height={290}
@@ -112,7 +116,10 @@ const Footer = () => {
                 <FooterInfo />
               </div>
             </div>
-            <BookingCalendar isVisible={isVisible} containerRef={containerRef} />
+            <BookingCalendar
+              isVisible={isVisible}
+              containerRef={containerRef}
+            />
             <div className="smiles-mobile">
               <Image
                 loading="lazy"
