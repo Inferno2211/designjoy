@@ -137,7 +137,7 @@ const Hiw = () => {
                         width={70}
                         height={70}
                         loading="lazy"
-                        className="image-7"
+                        className="image-7 hover:scale-125 transition-all duration-300"
                         style={{ opacity: 1 }}
                       />
                     </motion.div>
