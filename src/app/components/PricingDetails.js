@@ -150,10 +150,6 @@ const PricingDetails = () => {
                   animate={
                     isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }
                   }
-                  transition={{ duration: 0.5 }}
-                  animate={
-                    isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }
-                  }
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="div-block-29"
                 >
@@ -192,10 +188,6 @@ const PricingDetails = () => {
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.5 }}
                   animate={
                     isInView ? { opacity: 100, y: 0 } : { opacity: 0, y: 20 }
                   }
