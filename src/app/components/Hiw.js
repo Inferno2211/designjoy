@@ -4,6 +4,65 @@ import { useState } from "react";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 
+// Animation variants for cards
+const cardAnimation = {
+  initial: { opacity: 0, y: 100 },
+  animate: { opacity: 1, y: 0 },
+  transition: { 
+    duration: 0.8,
+    ease: [0.42, 0, 0.58, 1.0]
+  }
+};
+
+// Service pills data
+const servicePills = [
+  ["Mobile apps", "Presentations", "Logos", "Social Media", "Email"],
+  ["Webflow", "Print design", "Packaging", "Ad creative", "Landing pages"],
+  ["Branding", "Email", "Display ads", "Packaging", "User interface"]
+];
+
+// Logo data
+const logos = [
+  { src: "/images/images2/nectar.svg", width: 122, height: 20 },
+  { src: "/images/images2/buycoffee.svg", width: 151, height: 33 },
+  { src: "/images/images2/beehiiv.svg", width: 105, height: 26 },
+  { src: "/images/images2/laravel.svg", width: 79, height: 19 },
+  { src: "/images/images2/xfinity.svg", width: 74, height: 25 }
+];
+
+const ServiceMarquee = ({ pills }) => (
+  <div className="marquee-1 _2">
+    <div className="marquee-1-inner animate-marquee">
+      <div className="marquee-1-element">
+        {pills.map((pill, index) => (
+          <div key={index} className="service-pill">{pill}</div>
+        ))}
+      </div>
+      <div className="marquee-1-element">
+        {pills.map((pill, index) => (
+          <div key={index} className="service-pill">{pill}</div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const HiwCard = ({ className, header, description, children, delay = 0, isVisible }) => (
+  <motion.div
+    className={`hiw__card ${className} ${isVisible ? `animate-float-up-low${delay ? `-delay-${delay}` : ''}` : ''}`}
+    initial={cardAnimation.initial}
+    whileInView={cardAnimation.animate}
+    viewport={{ once: true }}
+    transition={{ ...cardAnimation.transition, delay }}
+  >
+    <div className={`hiw__card-gradient ${className}`}>
+      <div className="hiw__card-header">{header}</div>
+      <p className="hiw__card-p">{description}</p>
+    </div>
+    {children}
+  </motion.div>
+);
+
 const Hiw = () => {
   const [flipped, setFlipped] = useState(false);
   const [containerRef, isVisible] = useIntersectionObserver();
@@ -19,23 +78,11 @@ const Hiw = () => {
             </h2>
           </div>
           <div className="w-layout-grid hiw__grid" ref={containerRef}>
-            <motion.div
-              className={`hiw__card ${isVisible ? 'animate-float-up-low' : ''}`}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.8,
-                ease: [0.42, 0, 0.58, 1.0]
-              }}
+            <HiwCard 
+              header="Subscribe"
+              description="Subscribe to a plan & request as many designs as you'd like."
+              isVisible={isVisible}
             >
-              <div className="hiw__card-gradient">
-                <div className="hiw__card-header">Subscribe</div>
-                <p className="hiw__card-p text-black _2">
-                  Subscribe to a plan &amp; request as many designs as you'd
-                  like.
-                </p>
-              </div>
               <Image
                 src="https://cdn.prod.website-files.com/5837424ae11409586f837994/678548430d58f4cbecec1977_price.svg"
                 alt="price image"
@@ -44,87 +91,20 @@ const Hiw = () => {
                 loading="lazy"
                 className="image-3"
               />
-            </motion.div>
-            <motion.div
-              className={`hiw__card _2 ${isVisible ? 'animate-float-up-low-delay-1' : ''}`}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.42, 0, 0.58, 1.0]
-              }}
+            </HiwCard>
+            <HiwCard 
+              className="_2"
+              header="Request"
+              description="Request whatever you'd like, from mobile apps to logos."
+              delay={0.2}
+              isVisible={isVisible}
             >
-              <div className="hiw__card-gradient _2">
-                <div className="hiw__card-header">Request</div>
-                <p className="hiw__card-p">
-                  Request whatever you&#x27;d like, from mobile apps to logos.
-                </p>
-              </div>
               <div className="receive__image-wrapper">
                 <div className="marquees">
-                  <div className="marquee-1 _2">
-                    <div className="marquee-1-inner animate-marquee">
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Mobile apps</div>
-                        <div className="service-pill">Presentations</div>
-                        <div className="service-pill">Logos</div>
-                        <div className="service-pill">Social Media</div>
-                        <div className="service-pill">Email</div>
-                      </div>
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Mobile apps</div>
-                        <div className="service-pill">Presentations</div>
-                        <div className="service-pill">Logos</div>
-                        <div className="service-pill">Social Media</div>
-                        <div className="service-pill">Email</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="marquee-1 _2 _4455">
-                    <div className="marquee-1-inner _6886 animate-marquee">
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Webflow</div>
-                        <div className="service-pill">Print design</div>
-                        <div className="service-pill">Packaging</div>
-                        <div className="service-pill">Ad creative</div>
-                        <div className="service-pill">
-                          Landing pages
-                          <br />
-                        </div>
-                      </div>
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Webflow</div>
-                        <div className="service-pill">Print design</div>
-                        <div className="service-pill">Packaging</div>
-                        <div className="service-pill">Ad creative</div>
-                        <div className="service-pill">
-                          Landing pages
-                          <br />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="marquee-1 _2">
-                    <div className="marquee-1-inner animate-marquee">
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Branding</div>
-                        <div className="service-pill">Email</div>
-                        <div className="service-pill">Display ads</div>
-                        <div className="service-pill">Packaging</div>
-                        <div className="service-pill">User interface</div>
-                      </div>
-                      <div className="marquee-1-element">
-                        <div className="service-pill">Branding</div>
-                        <div className="service-pill">Email</div>
-                        <div className="service-pill">Display ads</div>
-                        <div className="service-pill">Packaging</div>
-                        <div className="service-pill">User interface</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className=" request__block">
+                  {servicePills.map((pills, index) => (
+                    <ServiceMarquee key={index} pills={pills} />
+                  ))}
+                  <div className="request__block">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
@@ -144,24 +124,14 @@ const Hiw = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-            <motion.div
-              className={`hiw__card _3 ${isVisible ? 'animate-float-up-low-delay-2' : ''}`}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.8,
-                delay: 0.4,
-                ease: [0.42, 0, 0.58, 1.0]
-              }}
+            </HiwCard>
+            <HiwCard 
+              className="_3"
+              header="Receive"
+              description="Receive your design within two business days on average."
+              delay={0.4}
+              isVisible={isVisible}
             >
-              <div className="hiw__card-gradient _3">
-                <div className="hiw__card-header">Receive</div>
-                <p className="hiw__card-p">
-                  Receive your design within two business days on average.
-                </p>
-              </div>
               <div className="div-block-2">
                 <div
                   style={{ opacity: 100 }}
@@ -175,57 +145,30 @@ const Hiw = () => {
                       transform: `rotate(${flipped ? 18 : 9}deg)`,
                       transition: "transform 0.5s ease-in-out",
                     }}
-                  ></div>
-
-                  <div className="middle-design"></div>
-
+                  />
+                  <div className="middle-design" />
                   <div
                     className="bottom-design"
                     style={{
                       transform: `rotate(${flipped ? -30 : -23}deg)`,
                       transition: "transform 0.5s ease-in-out",
                     }}
-                  ></div>
+                  />
                 </div>
               </div>
-            </motion.div>
+            </HiwCard>
           </div>
           <div className="logos__row">
-            <Image
-              loading="lazy"
-              src="/images/images2/nectar.svg"
-              alt=""
-              width={122}
-              height={20}
-            />
-            <Image
-              loading="lazy"
-              src="/images/images2/buycoffee.svg"
-              alt=""
-              width={151}
-              height={33}
-            />
-            <Image
-              loading="lazy"
-              src="/images/images2/beehiiv.svg"
-              alt=""
-              width={105}
-              height={26}
-            />
-            <Image
-              loading="lazy"
-              src="/images/images2/laravel.svg"
-              alt=""
-              width={79}
-              height={19}
-            />
-            <Image
-              loading="lazy"
-              src="/images/images2/xfinity.svg"
-              alt=""
-              width={74}
-              height={25}
-            />
+            {logos.map((logo, index) => (
+              <Image
+                key={index}
+                loading="lazy"
+                src={logo.src}
+                alt=""
+                width={logo.width}
+                height={logo.height}
+              />
+            ))}
           </div>
         </div>
         <div className="grid-line-right"></div>

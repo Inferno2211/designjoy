@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -116,14 +117,16 @@ const services = [
 
 const ServicesList = () => {
   const scrollRef = useRef(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   const scrollLeft = () => {
     if (scrollRef.current) {
       animateScroll({
         element: scrollRef.current,
-        scrollAmount: -300, // pixels
-        duration: 500, // milliseconds (from previous Tailwind: duration-[1200ms])
-        delay: 50, // milliseconds (from previous Tailwind: delay-[400ms])
+        scrollAmount: -250,
+        duration: 500,
+        delay: 50,
       });
     }
   };
@@ -132,26 +135,51 @@ const ServicesList = () => {
     if (scrollRef.current) {
       animateScroll({
         element: scrollRef.current,
-        scrollAmount: 300, // pixels
-        duration: 500, // milliseconds
-        delay: 50, // milliseconds
+        scrollAmount: 250,
+        duration: 500,
+        delay: 50,
       });
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="services__list">
+    <div className="services__list" ref={containerRef}>
       <div className="container p-b-0">
-        <div
+        <motion.div
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto scrollbar-none services__row"
           style={{ scrollbarWidth: "none" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`services__col opacity-0 animate-float-up`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="services__col"
+              variants={itemVariants}
             >
               <div className={`services__block ${service.blockClass}`}>
                 <Image
@@ -165,26 +193,30 @@ const ServicesList = () => {
               </div>
               <div className="services__header">{service.header}</div>
               <p className="services__p">{service.description}</p>
-            </div>
+            </motion.div>
           ))}
 
           <div className="div-block-18"></div>
-        </div>
+        </motion.div>
         <div className="mt-[5px] slider-wrapper _33 pl-10">
-          <button
+          <motion.button
             className="left-arrow-2 transition-transform duration-200 ease-out hover:scale-[0.8]"
             onClick={scrollLeft}
             aria-label="Scroll left"
+            whileHover={{ scale: 0.8 }}
+            whileTap={{ scale: 0.9 }}
           >
             <div className="w-icon-slider-left"></div>
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             className="right-arrow-2 ml-[22px] transition-transform duration-200 ease-out hover:scale-[0.8]"
             onClick={scrollRight}
             aria-label="Scroll right"
+            whileHover={{ scale: 0.8 }}
+            whileTap={{ scale: 0.9 }}
           >
             <div className="w-icon-slider-right"></div>
-          </button>
+          </motion.button>
         </div>
 
         <div className="grid-line-right"></div>
