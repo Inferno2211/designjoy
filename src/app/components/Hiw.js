@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
 
 const Hiw = () => {
   const [flipped, setFlipped] = useState(false);
@@ -18,12 +19,14 @@ const Hiw = () => {
             </h2>
           </div>
           <div className="w-layout-grid hiw__grid" ref={containerRef}>
-            <div
+            <motion.div
               className={`hiw__card ${isVisible ? 'animate-float-up-low' : ''}`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
-                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.42, 0, 0.58, 1.0]
               }}
             >
               <div className="hiw__card-gradient">
@@ -41,13 +44,16 @@ const Hiw = () => {
                 loading="lazy"
                 className="image-3"
               />
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className={`hiw__card _2 ${isVisible ? 'animate-float-up-low-delay-1' : ''}`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
-                transition: 'opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s'
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.42, 0, 0.58, 1.0]
               }}
             >
               <div className="hiw__card-gradient _2">
@@ -119,25 +125,35 @@ const Hiw = () => {
                     </div>
                   </div>
                   <div className=" request__block">
-                    <Image
-                      style={{ opacity: 100 }}
-                      src="/images/smileLogo.png"
-                      alt=""
-                      width={70}
-                      height={70}
-                      loading="lazy"
-                      className="image-7"
-                    />
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                    >
+                      <Image
+                        src="/images/smile.png"
+                        alt=""
+                        width={70}
+                        height={70}
+                        loading="lazy"
+                        className="image-7"
+                        style={{ opacity: 1 }}
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className={`hiw__card _3 ${isVisible ? 'animate-float-up-low-delay-2' : ''}`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
-                transition: 'opacity 0.8s ease-out 1s, transform 0.8s ease-out 1s'
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.4,
+                ease: [0.42, 0, 0.58, 1.0]
               }}
             >
               <div className="hiw__card-gradient _3">
@@ -172,7 +188,7 @@ const Hiw = () => {
                   ></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className="logos__row">
             <Image

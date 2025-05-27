@@ -1,16 +1,23 @@
 'use client';
 import Image from "next/image";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
 
 const PricingDetails = () => {
-  const [containerRef, isVisible] = useIntersectionObserver();
-
   return (
     <div className="pricing p-b-120">
       <div className="container m-t-0">
         <div className="inner-container">
-          <div className="div-block-27" ref={containerRef}>
-            <div className={`div-block-28 ${isVisible ? 'animate-float-up-low' : 'opacity-0'}`}>
+          <div className="div-block-27">
+            <motion.div 
+              className="div-block-28"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.42, 0, 0.58, 1.0]
+              }}
+            >
               <div className="marquee overflow-hidden">
                 <div className="marquee-inner flex whitespace-nowrap animate-scroll-left w-[200%]">
                   <div className="marquee-element w-[1/2] flex-shrink-0">
@@ -194,8 +201,18 @@ const PricingDetails = () => {
                   <div>See recent work</div>
                 </a>
               </div>
-            </div>
-            <div className={`async _4 ${isVisible ? 'animate-float-up-low-delay-1' : 'opacity-0'}`}>
+            </motion.div>
+            <motion.div 
+              className="async _4"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.42, 0, 0.58, 1.0]
+              }}
+            >
               <div>
                 <div className="div-block-29">
                   <div className="new-service-pill">Web design</div>
@@ -238,7 +255,7 @@ const PricingDetails = () => {
                 height={120}
                 className="image-30"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="grid-line-right"></div>

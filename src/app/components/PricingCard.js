@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
+
 const Player = dynamic(
   () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
   {
@@ -10,22 +11,29 @@ const Player = dynamic(
 );
 
 const PricingCard = () => {
-  const [containerRef, isVisible] = useIntersectionObserver();
-  const [imageRef, isImageVisible] = useIntersectionObserver();
   return (
     <div id="pricing" className="pricing">
-      <div className="container p-b-0 p-t-0">
-        <div className={`hiw__header-wrapper ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+      <motion.div 
+        className="container p-b-0 p-t-0"
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ 
+          duration: 0.8,
+          ease: [0.42, 0, 0.58, 1.0]
+        }}
+      >
+        <div className="hiw__header-wrapper">
           <div className="eyebrow">PRICING</div>
           <h1 className="dddd">
             One subscription,{" "}
             <span className="text-italics">endless possibilities</span>
           </h1>
         </div>
-        <div className={`pricing__flex ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
-          <div className={`div-block-3 ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
-            <div className={`${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
-              <div className={`hero__member-card-badge flex items-center gap-0 ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+        <div className="pricing__flex">
+          <div className="div-block-3">
+            <div>
+              <div className="hero__member-card-badge flex items-center gap-0">
                 <div className="lottie-animation-5 w-[30px] h-[30px]">
                   <Player
                     autoplay
@@ -37,15 +45,25 @@ const PricingCard = () => {
                 <div className="text-sm font-medium">Start today</div>
               </div>
 
-              <div className={`hero__member-card-header ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+              <div className="hero__member-card-header">
                 Join
               </div>
-              <div className={`hero__member-card-header bottom ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+              <div className="hero__member-card-header bottom">
                 Designjoy
               </div>
             </div>
 
-            <div className={`image-10 ${isImageVisible ? 'animate-float-down opacity-100' : 'opacity-0'} transition-all duration-700`} ref={imageRef}>
+            <motion.div 
+              className="image-10"
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.8,
+                delay: 1,
+                ease: [0.42, 0, 0.58, 1.0]
+              }}
+            >
               <Image
                 sizes="(max-width: 688px) 100vw, 688px"
                 alt="card"
@@ -53,11 +71,11 @@ const PricingCard = () => {
                 loading="lazy"
                 width={1631}
                 height={1000}
-                className={`${isImageVisible ? 'animate-floatComplex2' : ''}`}
+                className="animate-floatComplex2"
               />
-            </div>
+            </motion.div>
           </div>
-          <div style={{ opacity: 100 }} className={`pricing__card ${isVisible ? 'animate-float-up-low' : 'opacity-0'} transition-all duration-700`} ref={containerRef}>
+          <div style={{ opacity: 100 }} className={`pricing__card`}>
             <div className="div-block-4">
               <div className="pricing__card-header">Monthly Club</div>
               <div className="div-block-5">
@@ -190,7 +208,7 @@ const PricingCard = () => {
         </div>
         <div className="grid-line-right"></div>
         <div className="grid-line-left"></div>
-      </div>
+      </motion.div>
     </div>
   );
 };

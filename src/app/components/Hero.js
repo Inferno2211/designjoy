@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
 
 const Player = dynamic(
   () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
@@ -12,9 +12,6 @@ const Player = dynamic(
 );
 
 const Hero = () => {
-  const [memberCardRef, isMemberCardVisible] = useIntersectionObserver();
-  const [callCardRef, isCallCardVisible] = useIntersectionObserver();
-
   return (
     <div className="hero">
       <div className="container hero-container">
@@ -97,26 +94,34 @@ const Hero = () => {
                   <div className="hero__member-card-p">
                     One subscription to rule them all.
                   </div>
-                  <a
+                  <motion.a
                     style={{ opacity: 100 }}
                     href="#pricing"
-                    className={`button w-button ${
-                      isMemberCardVisible
-                        ? "animate-float-up-bounce"
-                        : "opacity-0"
-                    }`}
-                    ref={memberCardRef}
+                    className="button w-button"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 1,
+                      ease: [0.42, 0, 0.58, 1.0],
+                      delay: 0.2,
+                    }}
                   >
                     See pricing
-                  </a>
+                  </motion.a>
                 </div>
-                <a
+                <motion.a
                   style={{ opacity: 100 }}
                   href="#book"
-                  className={`hero__member-card-call w-inline-block ${
-                    isCallCardVisible ? "animate-float-up" : "opacity-0"
-                  }`}
-                  ref={callCardRef}
+                  className="hero__member-card-call w-inline-block"
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.2,
+                    ease: [0.4, 0, 0.2, 1]
+                  }}
                 >
                   <div className="hero__member-card-call-left">
                     <Image
@@ -142,12 +147,12 @@ const Hero = () => {
                     width={34}
                     height={34}
                   />
-                </a>
+                </motion.a>
 
                 <Image
                   sizes="(max-width: 688px) 100vw, 688px"
                   alt="card"
-                  src="/images/smileHero.png"
+                  src="/images/images2/colorsmile.png"
                   loading="lazy"
                   width={688}
                   height={460}
