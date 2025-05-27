@@ -74,6 +74,105 @@ const faqData = [
   },
 ];
 
+const FaqItem = ({ question, answer, isOpen, onClick }) => (
+  <div className="faq__row" onClick={onClick} style={{ cursor: "pointer" }}>
+    <div>
+      <div className="faq__question m-b-0">{question}</div>
+      <p
+        className="faq__answer"
+        style={{
+          display: isOpen ? "block" : "none",
+          marginTop: "12px",
+          marginBottom: "0",
+          fontSize: "16px",
+          lineHeight: "20px",
+          color: "#99948f"
+        }}
+      >
+        {answer.split("\n\n").map((paragraph, i) => (
+          <span key={i}>
+            {paragraph}
+            {i < answer.split("\n\n").length - 1 && (
+              <>
+                <br />
+                <br />
+              </>
+            )}
+          </span>
+        ))}
+      </p>
+    </div>
+    <Image
+      src="/chevron-down.svg"
+      alt=""
+      width={24}
+      height={24}
+      className="faq__arrow"
+      style={{
+        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.3s ease"
+      }}
+    />
+  </div>
+);
+
+const FaqCard = ({ isVisible, cardRef, buttonRef, emailRef }) => (
+  <div className="faq__card">
+    <div 
+      ref={cardRef}
+      className={`faq__card-inner ${isVisible.card ? 'animate-float-up' : 'opacity-0'}`}
+    >
+      <Image
+        loading="lazy"
+        src="/images/images2/smileface2.png"
+        alt=""
+        width={130}
+        height={115}
+        className="image-11"
+      />
+      <div className="hero__member-card-header _2">
+        Book a 15-min intro call
+      </div>
+      <a 
+        ref={buttonRef}
+        href="#book" 
+        className={`button w-button ${isVisible.button ? 'animate-float-up-bounce' : 'opacity-0'}`}
+      >
+        Book a call
+      </a>
+    </div>
+    <a
+      ref={emailRef}
+      href="mailto:hello@designjoy.co?subject=Website%20Inquiry"
+      className={`hero__member-card-call w-inline-block ${isVisible.email ? 'animate-float-up-low' : 'opacity-0'}`}
+    >
+      <div className="hero__member-card-call-left">
+        <Image
+          loading="lazy"
+          src="/images/images2/faqarrow.png"
+          alt=""
+          width={30}
+          height={30}
+          className="image-2 send"
+        />
+        <div>
+          <div>Prefer to email?</div>
+          <div className="hero__member-card-call-schedule">
+            hello@designjoy.co
+          </div>
+        </div>
+      </div>
+      <Image
+        loading="lazy"
+        src="images/images2/arrow.svg"
+        alt=""
+        width={34}
+        height={34}
+      />
+    </a>
+  </div>
+);
+
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(null);
   const [isVisible, setIsVisible] = useState({
@@ -118,10 +217,6 @@ export default function Faq() {
     };
   }, []);
 
-  const toggleFaq = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <div className="pricing">
       <div className="container faqq">
@@ -133,110 +228,21 @@ export default function Faq() {
               </h1>
               <div className="div-block-13">
                 {faqData.map((faq, index) => (
-                  <div
+                  <FaqItem
                     key={index}
-                    className="faq__row"
-                    onClick={() => toggleFaq(index)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <div>
-                      <div className="faq__question m-b-0">{faq.question}</div>
-                      <p
-                        className="faq__answer"
-                        style={{
-                          display: openIndex === index ? "block" : "none",
-                          marginTop: "12px",
-                          marginBottom: "0",
-                          fontSize: "16px",
-                          lineHeight: "20px",
-                          color: "#99948f",
-                        }}
-                      >
-                        {faq.answer.split("\n\n").map((paragraph, i) => (
-                          <span key={i}>
-                            {paragraph}
-                            {i < faq.answer.split("\n\n").length - 1 && (
-                              <>
-                                <br />
-                                <br />
-                              </>
-                            )}
-                          </span>
-                        ))}
-                      </p>
-                    </div>
-                    <Image
-                      src="/chevron-down.svg"
-                      alt=""
-                      width={24}
-                      height={24}
-                      className="faq__arrow"
-                      style={{
-                        transform:
-                          openIndex === index
-                            ? "rotate(180deg)"
-                            : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
-                      }}
-                    />
-                  </div>
+                    {...faq}
+                    isOpen={openIndex === index}
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  />
                 ))}
               </div>
             </div>
-            <div className="faq__card">
-              <div 
-                ref={cardRef}
-                className={`faq__card-inner ${isVisible.card ? 'animate-float-up' : 'opacity-0'}`}
-              >
-                <Image
-                  loading="lazy"
-                  src="/images/images2/smileface2.png"
-                  alt=""
-                  width={130}
-                  height={115}
-                  className="image-11"
-                />
-                <div className="hero__member-card-header _2">
-                  Book a 15-min intro call
-                </div>
-                <a 
-                  ref={buttonRef}
-                  href="#book" 
-                  className={`button w-button ${isVisible.button ? 'animate-float-up-bounce' : 'opacity-0'}`}
-                >
-                  Book a call
-                </a>
-              </div>
-              <a
-                ref={emailRef}
-                href="mailto:hello@designjoy.co?subject=Website%20Inquiry"
-                className={`hero__member-card-call w-inline-block ${isVisible.email ? 'animate-float-up-low' : 'opacity-0'}`}
-              >
-                <div className="hero__member-card-call-left">
-                  <Image
-                    loading="lazy"
-                    src="/images/images2/faqarrow.png"
-                    alt=""
-                    width={30}
-                    height={30}
-                    className="image-2 send"
-                  />
-                  <div>
-                    <div>Prefer to email?</div>
-                    <div className="hero__member-card-call-schedule">
-                      hello@designjoy.co
-                    </div>
-                  </div>
-                </div>
-                <Image
-                  loading="lazy"
-                  src="images/images2/arrow.svg"
-                  alt=""
-                  width={34}
-                  height={34}
-                />
-              </a>
-            </div>
+            <FaqCard
+              isVisible={isVisible}
+              cardRef={cardRef}
+              buttonRef={buttonRef}
+              emailRef={emailRef}
+            />
           </div>
         </div>
         <div className="grid-line-right"></div>

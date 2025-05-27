@@ -1,157 +1,89 @@
 "use client";
 import Image from "next/image";
-import Script from "next/script";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import Link from "next/link";
 
-const Footer = () => {
-  const [containerRef, isVisible] = useIntersectionObserver();
+const FooterLink = ({ href, children }) => (
+  <Link href={href} className="footer__link w-inline-block">
+    {children}
+  </Link>
+);
 
+const SocialLink = ({ href, src, alt }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="footer__social-link w-inline-block">
+    <Image src={src} alt={alt} width={24} height={24} />
+  </a>
+);
+
+const FooterSection = ({ title, links }) => (
+  <div className="footer__column">
+    <div className="footer__column-title">{title}</div>
+    <div className="footer__links">
+      {links.map((link, index) => (
+        <FooterLink key={index} href={link.href}>
+          {link.text}
+        </FooterLink>
+      ))}
+    </div>
+  </div>
+);
+
+const footerLinks = {
+  company: [
+    { href: "/about", text: "About" },
+    { href: "/careers", text: "Careers" },
+    { href: "/blog", text: "Blog" },
+    { href: "/press", text: "Press" }
+  ],
+  resources: [
+    { href: "/resources", text: "Resources" },
+    { href: "/help", text: "Help" },
+    { href: "/contact", text: "Contact" },
+    { href: "/privacy", text: "Privacy" }
+  ],
+  legal: [
+    { href: "/terms", text: "Terms" },
+    { href: "/privacy", text: "Privacy" },
+    { href: "/cookies", text: "Cookies" }
+  ]
+};
+
+const socialLinks = [
+  { href: "https://twitter.com/designjoy", src: "/images/twitter.svg", alt: "Twitter" },
+  { href: "https://instagram.com/designjoy", src: "/images/instagram.svg", alt: "Instagram" },
+  { href: "https://linkedin.com/company/designjoy", src: "/images/linkedin.svg", alt: "LinkedIn" }
+];
+
+export default function Footer() {
   return (
-    <div id="book" className="footer">
-      <div className="container hero-container foooooo">
-        <div className="inner-container">
-          <div className="footer__flex">
-            <div className="div-block-25 desktop">
-              <div className="hero__left white">
-                <div className="hero__left-top">
-                  <a
-                    href="#"
-                    className="hero__logo-block invert w-inline-block"
-                  >
-                    <Image
-                      loading="lazy"
-                      src="/images/images2/designlogo.svg"
-                      alt="Designjoy Logo"
-                      width={24}
-                      height={20}
-                      className="mr-[6px]"
-                    />
-                    <Image
-                      loading="lazy"
-                      src="/images/images2/designjoy.svg"
-                      alt="Designjoy Logo"
-                      width={100}
-                      height={24}
-                      className="image-23"
-                    />
-                  </a>
-                </div>
-                <div className="footer__bottom-top">
-                  <h1 className="top footer__header">
-                    See if Designjoy is the right fit for you{" "}
-                    <span className="text-italics">(it totally is)</span>
-                  </h1>
-                  <p className="hero__left-bottom-p m-b-d foooo">
-                    Schedule a quick, 15 minute guided tour through Designjoy.
-                  </p>
-                </div>
-              </div>
-              <div className="smiles-desktop">
-                <Image
-                  loading="lazy"
-                  src="/images/images2/smileyfaces.svg"
-                  alt="Smiley faces"
-                  width={700}
-                  height={290}
-                />
-                <div className="div-block-26">
-                  <div className="head">Headquartered in Phoenix, Arizona</div>
-                  <a
-                    href="https://brettwill1025.notion.site/Terms-Conditions-4901d894656448a69c4c4e04d40d3bbc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link _3"
-                  >
-                    Terms of service
-                  </a>
-                  <a
-                    href="https://brettwill1025.notion.site/DesignJoy-Privacy-Policy-0011594d80724a68821940237f9f7b02"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link _3"
-                  >
-                    Privacy Policy
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              data-w-id="4bf06ab7-87fa-09aa-0827-16307073412e"
-              style={{ opacity: 100 }}
-              className={`book-a-call-wrapper ${isVisible ? 'animate-float-up' : 'opacity-0'}`}
-              ref={containerRef}
-            >
-              {/* <div className="div-block-38">
-                <div className={`text-block-6`}>
-                  Designjoy is experiencing a high volume of bookings, so slots
-                  are limited. For faster service, email{" "}
-                  <a
-                    href="mailto:hello@designjoy.co"
-                    className="text-link pink"
-                  >
-                    hello@designjoy.co
-                  </a>{" "}
-                  for a same-day response.
-                </div>
-              </div> */}
-              <div className="book-desktop w-embed w-script">
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    overflow: "scroll",
-                  }}
-                  id="my-cal-inline"
-                ></div>
-                <Script id="cal-embed-script" strategy="afterInteractive">
-                  {`
-                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                    Cal("init", "15min", { origin: "https://cal.com" });
-                    Cal.ns["15min"]("inline", {
-                      elementOrSelector: "#my-cal-inline",
-                      config: { "layout": "month_view", "theme": "dark" },
-                      calLink: "designjoy/15min",
-                    });
-                    Cal.ns["15min"]("ui", { "theme": "dark", "cssVarsPerTheme": { "light": { "cal-brand": "#000000" }, "dark": { "cal-brand": "#ffffff" } }, "hideEventTypeDetails": true, "layout": "month_view" });
-                  `}
-                </Script>
-              </div>
-            </div>
-            <div className="smiles-mobile">
-              <Image
-                loading="lazy"
-                src="/Smiley_faces.svg"
-                alt="Smiley faces"
-                width={200}
-                height={100}
-              />
-              <div className="div-block-26">
-                <div className="head">Headquartered in Phoenix, Arizona</div>
-                <a
-                  href="https://brettwill1025.notion.site/Terms-Conditions-4901d894656448a69c4c4e04d40d3bbc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-link _3"
-                >
-                  Terms of service
-                </a>
-                <a
-                  href="https://brettwill1025.notion.site/DesignJoy-Privacy-Policy-0011594d80724a68821940237f9f7b02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-link _3"
-                >
-                  Privacy Policy
-                </a>
-              </div>
-            </div>
+    <div className="footer">
+      <div className="container">
+        <div className="footer__top">
+          <div className="footer__logo">
+            <Image
+              src="/images/logo.svg"
+              alt="Designjoy"
+              width={120}
+              height={40}
+              className="footer__logo-image"
+            />
+          </div>
+          <div className="footer__social">
+            {socialLinks.map((link, index) => (
+              <SocialLink key={index} {...link} />
+            ))}
           </div>
         </div>
-        <div className="grid-line-right dark"></div>
-        <div className="grid-line-left dark"></div>
+        <div className="footer__columns">
+          <FooterSection title="Company" links={footerLinks.company} />
+          <FooterSection title="Resources" links={footerLinks.resources} />
+          <FooterSection title="Legal" links={footerLinks.legal} />
+        </div>
+        <div className="footer__bottom">
+          <div className="footer__copyright">
+            © {new Date().getFullYear()} Designjoy. All rights reserved.
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default Footer;
+}

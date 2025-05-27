@@ -1,56 +1,80 @@
 import Image from "next/image";
 
+// Testimonial data
+const testimonials = [
+  {
+    quote: "Designjoy shows that they know the art of subtlety.",
+    company: {
+      logo: "/images/images2/webflow.svg",
+      width: 196,
+      height: 33,
+      className: "image-12"
+    }
+  },
+  {
+    quote: "Design is everything, and these guys have nailed it.",
+    person: {
+      name: "Kevin O'Leary",
+      role: "Shark Tank",
+      image: {
+        src: "/images/images2/kevin.png",
+        width: 70,
+        height: 70,
+        className: "image-13"
+      }
+    }
+  }
+];
+
+const TestimonialCard = ({ testimonial }) => (
+  <div className="div-block-17">
+    <div className="div-block-14">
+      <div className="text-block-2">
+        &quot;{testimonial.quote}&quot;
+        <br />
+      </div>
+      {testimonial.company ? (
+        <Image
+          loading="lazy"
+          src={testimonial.company.logo}
+          alt=""
+          width={testimonial.company.width}
+          height={testimonial.company.height}
+          className={testimonial.company.className}
+        />
+      ) : (
+        <div className="div-block-15">
+          <Image
+            loading="lazy"
+            src={testimonial.person.image.src}
+            alt=""
+            width={testimonial.person.image.width}
+            height={testimonial.person.image.height}
+            className={testimonial.person.image.className}
+          />
+          <div className="div-block-16">
+            <div className="text-block-3">{testimonial.person.name}</div>
+            <div>{testimonial.person.role}</div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 const Pricing = () => {
   return (
     <div className="pricing">
       <div className="container">
         <div className="inner-container slider">
-          {/* This grid will be a sub-component or part of a more complex layout later */}
           <div className="w-layout-grid grid-3">
-            <div className="div-block-17">
-              <div className="div-block-14">
-                <div className="text-block-2">
-                  &quot;Designjoy shows that they know the art of
-                  subtlety.&quot;
-                  <br />
-                </div>
-                <Image
-                  loading="lazy"
-                  src="/images/images2/webflow.svg"
-                  alt=""
-                  width={196}
-                  height={33}
-                  className="image-12"
-                />
-              </div>
-            </div>
-            <div className="div-block-17">
-              <div className="div-block-14">
-                <div className="text-block-2">
-                  &quot;Design is everything, and these guys have nailed
-                  it.&quot;
-                  <br />
-                </div>
-                <div className="div-block-15">
-                  <Image
-                    loading="lazy"
-                    src="/images/images2/kevin.png"
-                    alt=""
-                    width={70}
-                    height={70}
-                    className="image-13"
-                  />
-                  <div className="div-block-16">
-                    <div className="text-block-3">Kevin O&#x27;Leary</div>
-                    <div>Shark Tank</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={index} testimonial={testimonial} />
+            ))}
           </div>
         </div>
-        <div className="grid-line-right"></div>
-        <div className="grid-line-left"></div>
+        <div className="grid-line-right" />
+        <div className="grid-line-left" />
       </div>
     </div>
   );

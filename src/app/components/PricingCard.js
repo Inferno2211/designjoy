@@ -10,18 +10,85 @@ const Player = dynamic(
   }
 );
 
+// Animation variants
+const fadeInUp = {
+  initial: { opacity: 0, y: -100 },
+  animate: { opacity: 1, y: 0 },
+  transition: { 
+    duration: 0.8,
+    ease: [0.42, 0, 0.58, 1.0]
+  }
+};
+
+// Pricing features data
+const pricingFeatures = {
+  left: [
+    "One request at a time",
+    "Avg. 48 hour delivery",
+    "Unlimited brands",
+    "Webflow development"
+  ],
+  right: [
+    "Unlimited stock photos",
+    "Up to 2 users",
+    "Pause or cancel anytime"
+  ]
+};
+
+// Logo data
+const logos = [
+  { src: "/images/images2/nectar.svg", width: 122, height: 20 },
+  { src: "/images/images2/buycoffee.svg", width: 151, height: 33 },
+  { src: "/images/images2/beehiiv.svg", width: 105, height: 26 },
+  { src: "/images/images2/laravel.svg", width: 79, height: 19 },
+  { src: "/images/images2/xfinity.svg", width: 74, height: 25 }
+];
+
+// Feature card data
+const featureCards = [
+  {
+    icon: "/images/images2/pause.svg",
+    title: "Pause anytime",
+    description: "Temporarily pause your subscription anytime, no sweat.",
+    className: "_1"
+  },
+  {
+    icon: "/images/images2/tickmark.svg",
+    title: "Try it for a week",
+    description: "Not loving it after a week? Get 75% back, no questions asked.",
+    className: "",
+    iconClassName: "invert"
+  }
+];
+
+const FeatureCard = ({ icon, title, description, className, iconClassName }) => (
+  <div className={`div-block-10 ${className}`}>
+    <div className={`div-block-11 ${className === "_1" ? "" : "_2"}`}>
+      <div className="div-block-12">
+        <Image
+          loading="lazy"
+          src={icon}
+          alt=""
+          width={24}
+          height={24}
+          className={iconClassName}
+        />
+        <div className="hiw__card-header m-b-0">{title}</div>
+      </div>
+      <p className="hiw__card-p text-black">{description}</p>
+    </div>
+  </div>
+);
+
 const PricingCard = () => {
   return (
     <div id="pricing" className="pricing">
       <motion.div 
         className="container p-b-0 p-t-0"
-        initial={{ opacity: 0, y: -100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={fadeInUp.initial}
+        whileInView={fadeInUp.animate}
         viewport={{ once: true }}
-        transition={{ 
-          duration: 0.8,
-          ease: [0.42, 0, 0.58, 1.0]
-        }}
+        transition={fadeInUp.transition}
       >
         <div className="hiw__header-wrapper">
           <div className="eyebrow">PRICING</div>
@@ -55,14 +122,10 @@ const PricingCard = () => {
 
             <motion.div 
               className="image-10"
-              initial={{ opacity: 0, y: -100 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={fadeInUp.initial}
+              whileInView={fadeInUp.animate}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.8,
-                delay: 1,
-                ease: [0.42, 0, 0.58, 1.0]
-              }}
+              transition={{ ...fadeInUp.transition, delay: 1 }}
             >
               <Image
                 sizes="(max-width: 688px) 100vw, 688px"
@@ -89,15 +152,14 @@ const PricingCard = () => {
             <div className="div-block-7">
               <div className="w-layout-grid grid">
                 <div className="pricing__list">
-                  <div>One request at a time</div>
-                  <div>Avg. 48 hour delivery</div>
-                  <div>Unlimited brands</div>
-                  <div>Webflow development</div>
+                  {pricingFeatures.left.map((feature, index) => (
+                    <div key={index}>{feature}</div>
+                  ))}
                 </div>
                 <div className="pricing__list">
-                  <div>Unlimited stock photos</div>
-                  <div>Up to 2 users</div>
-                  <div>Pause or cancel anytime</div>
+                  {pricingFeatures.right.map((feature, index) => (
+                    <div key={index}>{feature}</div>
+                  ))}
                 </div>
               </div>
               <div className="included">
@@ -133,78 +195,21 @@ const PricingCard = () => {
           </div>
         </div>
         <div className="w-layout-grid grid-2">
-          <div className="div-block-10 _1">
-            <div className="div-block-11">
-              <div className="div-block-12">
-                <Image
-                  loading="lazy"
-                  src="/images/images2/pause.svg"
-                  alt=""
-                  width={24}
-                  height={24}
-                />
-                <div className="hiw__card-header m-b-0">Pause anytime</div>
-              </div>
-              <p className="hiw__card-p text-black">
-                Temporarily pause your subscription anytime, no sweat.
-              </p>
-            </div>
-          </div>
-          <div className="div-block-10">
-            <div className="div-block-11 _2">
-              <div className="div-block-12">
-                <Image
-                  width="24"
-                  loading="lazy"
-                  alt=""
-                  src="/images/images2/tickmark.svg"
-                  height={24}
-                  className="invert"
-                />
-                <div className="hiw__card-header m-b-0">Try it for a week</div>
-              </div>
-              <p className="hiw__card-p text-black">
-                Not loving it after a week? Get 75% back, no questions asked.
-              </p>
-            </div>
-          </div>
+          {featureCards.map((card, index) => (
+            <FeatureCard key={index} {...card} />
+          ))}
         </div>
         <div className="logos__row">
-          <Image
-            loading="lazy"
-            src="/images/images2/nectar.svg"
-            alt=""
-            width={122}
-            height={20}
-          />
-          <Image
-            loading="lazy"
-            src="/images/images2/buycoffee.svg"
-            alt=""
-            width={151}
-            height={33}
-          />
-          <Image
-            loading="lazy"
-            src="/images/images2/beehiiv.svg"
-            alt=""
-            width={105}
-            height={26}
-          />
-          <Image
-            loading="lazy"
-            src="/images/images2/laravel.svg"
-            alt=""
-            width={79}
-            height={19}
-          />
-          <Image
-            loading="lazy"
-            src="/images/images2/xfinity.svg"
-            alt=""
-            width={74}
-            height={25}
-          />
+          {logos.map((logo, index) => (
+            <Image
+              key={index}
+              loading="lazy"
+              src={logo.src}
+              alt=""
+              width={logo.width}
+              height={logo.height}
+            />
+          ))}
         </div>
         <div className="grid-line-right"></div>
         <div className="grid-line-left"></div>

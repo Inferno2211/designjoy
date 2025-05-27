@@ -50,6 +50,26 @@ const animateScroll = ({ element, scrollAmount, duration, delay }) => {
   }, delay);
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
 const services = [
   {
     imgSrc: "/images/images2/servicelist1.png",
@@ -59,7 +79,7 @@ const services = [
     header: "Design board",
     description: "Easily manage your design queue with a Trello board.",
     blockClass: "_1",
-    imgClass: "image-8",
+    imgClass: "image-8"
   },
   {
     imgSrc: "/images/images2/lock.png",
@@ -69,7 +89,7 @@ const services = [
     header: "Fixed monthly rate",
     description: "No surprises here! Pay the same fixed price each month.",
     blockClass: "_3",
-    imgClass: "image-8 _4",
+    imgClass: "image-8 _4"
   },
   {
     imgSrc: "/images/images2/arrowstream.png",
@@ -77,10 +97,9 @@ const services = [
     width: 60,
     height: 60,
     header: "Fast delivery",
-    description:
-      "Get your design one at a time in just a couple days on average.",
+    description: "Get your design one at a time in just a couple days on average.",
     blockClass: "_2",
-    imgClass: "image-8 _3",
+    imgClass: "image-8 _3"
   },
   {
     imgSrc: "/images/images2/star.png",
@@ -88,10 +107,9 @@ const services = [
     width: 70,
     height: 70,
     header: "Top-notch quality",
-    description:
-      "Senior-level design quality at your fingertips, whenever you need it.",
+    description: "Senior-level design quality at your fingertips, whenever you need it.",
     blockClass: "_4",
-    imgClass: "image-8 _2",
+    imgClass: "image-8 _2"
   },
   {
     imgSrc: "/images/images2/block.png",
@@ -101,7 +119,7 @@ const services = [
     header: "Flexible and scalable",
     description: "Scale up or down as needed, and pause or cancel at anytime.",
     blockClass: "_5",
-    imgClass: "image-8",
+    imgClass: "image-8"
   },
   {
     imgSrc: "/images/images2/nova.png",
@@ -111,57 +129,53 @@ const services = [
     header: "Unique and all yours",
     description: "Every design is made especially for you and is 100% yours.",
     blockClass: "_6",
-    imgClass: "image-8",
-  },
+    imgClass: "image-8"
+  }
 ];
+
+const ServiceCard = ({ service }) => (
+  <motion.div className="services__col" variants={itemVariants}>
+    <div className={`services__block ${service.blockClass}`}>
+      <Image
+        loading="lazy"
+        src={service.imgSrc}
+        alt={service.alt}
+        width={service.width}
+        height={service.height}
+        className={service.imgClass}
+      />
+    </div>
+    <div className="services__header">{service.header}</div>
+    <p className="services__p">{service.description}</p>
+  </motion.div>
+);
+
+const ScrollButton = ({ direction, onClick }) => (
+  <motion.button
+    className={`${direction}-arrow-2 ${direction === 'right' ? 'ml-[22px]' : ''} transition-transform duration-200 ease-out hover:scale-[0.8]`}
+    onClick={onClick}
+    aria-label={`Scroll ${direction}`}
+    whileHover={{ scale: 0.8 }}
+    whileTap={{ scale: 0.9 }}
+  >
+    <div className={`w-icon-slider-${direction}`} />
+  </motion.button>
+);
 
 const ServicesList = () => {
   const scrollRef = useRef(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
-  const scrollLeft = () => {
+  const handleScroll = (amount) => {
     if (scrollRef.current) {
       animateScroll({
         element: scrollRef.current,
-        scrollAmount: -250,
+        scrollAmount: amount,
         duration: 500,
-        delay: 50,
+        delay: 50
       });
     }
-  };
-
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      animateScroll({
-        element: scrollRef.current,
-        scrollAmount: 250,
-        duration: 500,
-        delay: 50,
-      });
-    }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
   };
 
   return (
@@ -176,51 +190,18 @@ const ServicesList = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="services__col"
-              variants={itemVariants}
-            >
-              <div className={`services__block ${service.blockClass}`}>
-                <Image
-                  loading="lazy"
-                  src={service.imgSrc}
-                  alt={service.alt}
-                  width={service.width}
-                  height={service.height}
-                  className={service.imgClass}
-                />
-              </div>
-              <div className="services__header">{service.header}</div>
-              <p className="services__p">{service.description}</p>
-            </motion.div>
+            <ServiceCard key={index} service={service} />
           ))}
-
-          <div className="div-block-18"></div>
+          <div className="div-block-18" />
         </motion.div>
+
         <div className="mt-[5px] slider-wrapper _33 pl-10">
-          <motion.button
-            className="left-arrow-2 transition-transform duration-200 ease-out hover:scale-[0.8]"
-            onClick={scrollLeft}
-            aria-label="Scroll left"
-            whileHover={{ scale: 0.8 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="w-icon-slider-left"></div>
-          </motion.button>
-          <motion.button
-            className="right-arrow-2 ml-[22px] transition-transform duration-200 ease-out hover:scale-[0.8]"
-            onClick={scrollRight}
-            aria-label="Scroll right"
-            whileHover={{ scale: 0.8 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="w-icon-slider-right"></div>
-          </motion.button>
+          <ScrollButton direction="left" onClick={() => handleScroll(-250)} />
+          <ScrollButton direction="right" onClick={() => handleScroll(250)} />
         </div>
 
-        <div className="grid-line-right"></div>
-        <div className="grid-line-left"></div>
+        <div className="grid-line-right" />
+        <div className="grid-line-left" />
       </div>
     </div>
   );

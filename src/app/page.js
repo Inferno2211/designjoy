@@ -7,7 +7,6 @@ import PricingDetails from "./components/PricingDetails";
 import PricingCard from "./components/PricingCard";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
-import Call from "./components/Call";
 
 export default function Home() {
   return (
@@ -20,7 +19,6 @@ export default function Home() {
       <PricingDetails />
       <PricingCard />
       <Faq />
-
       <Footer />
     </main>
   );
