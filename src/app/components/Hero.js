@@ -66,8 +66,6 @@ const MemberCardBadge = () => (
     <div className="relative w-[30px] h-[30px] flex items-center justify-center">
       {/* Blinking ring */}
       <span className="absolute w-[15px] h-[15px] rounded-full bg-yellow-400 opacity-40 animate-ping"></span>
-
-      {/* Yellow dot */}
       <div className="bg-yellow-400 w-[10px] h-[10px] rounded-full z-10"></div>
     </div>
     <div className="text-sm font-medium ">Start today</div>

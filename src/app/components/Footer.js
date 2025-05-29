@@ -123,9 +123,9 @@ const Footer = () => {
             <div className="smiles-mobile">
               <Image
                 loading="lazy"
-                src="/Smiley_faces.svg"
+                src="image/smileyfaces.svg"
                 alt="Smiley faces"
-                width={200}
+                width={350}
                 height={100}
               />
               <FooterInfo />
